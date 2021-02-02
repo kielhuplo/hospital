@@ -31,11 +31,11 @@
  <table>
 <tr>
 Username:
-<input type="text" name="username" required="required" placeholder="Uzumakiel"/><br/>
+<input type="text" name="username" required="required" placeholder="..."/><br/>
 </tr>
 <tr>
 Password:
-<input type="password" name="password" required="required" placeholder="P@$$w0rd" />
+<input type="password" name="password" required="required" placeholder="..." />
 </tr>
  </table><br>
  <input type="submit" value="Login"/><br/><br/>
