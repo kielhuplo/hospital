@@ -3,13 +3,13 @@
 session_start();
 $username = ($_POST['username']);
 $password = ($_POST['password']);
-$db_name = "deliverydb";
+$db_name = "patient_care";
 $db_username = "root";
 $db_pass = "";
 $db_host = "localhost";
 $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or
 die(mysqli_error()); //Connect to server
-$query = "SELECT * from users WHERE username='$username'";
+$query = "SELECT * from administrator WHERE username='$username'";
 $results = mysqli_query($con, $query); //Query the users table if there are matching rows equal to $username
 $exists = mysqli_num_rows($con, $query); //Checks if username exists
 $table_users = "";
@@ -25,7 +25,7 @@ if(($username == $table_users) && ($password == $table_password)) // checks if t
 {
 if($password == $table_password)
 {
-$_SESSION['user'] = $username; //set the username in a session. This serves as a global variable
+$_SESSION['administrator'] = $username; //set the username in a session. This serves as a global variable
 header("location: home.php"); // redirects the user to the authenticated home page
 }
 }
