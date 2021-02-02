@@ -92,7 +92,7 @@ input[type=submit]:hover {
 
 					<div class="container">
 					<div class="underline"><div class="txt-center">  <h1> New Patient Registration</h1></div> </div>
-						 <form action="register.php" method="POST">
+						 <form action="" method="POST">
 											
 Username: <input type="text" name="username" required="required" placeholder="User" /><br>
 
@@ -100,7 +100,7 @@ Password: <input type="password" name="password" required="required" placeholder
 Updation Date: <input type="date" name="updation_date" required="required" placeholder="..." /><br>
 
 <br><br>
-								<input type="submit" id="submit" value="Register"/><br/><br/>
+								<input type="submit" name="submit" id="submit" value="Register"/><br/><br/>
 								<a href="register_admin.php" style="color:blue">Have an Account? Login Here!</a>
  						</form>
 				    </div>
@@ -112,40 +112,37 @@ Updation Date: <input type="date" name="updation_date" required="required" place
 </html>
 
 <?php
-if($_SERVER["REQUEST_METHOD"] == "POST")
-{
-$username = ($_POST['username']);
-$password = ($_POST['password']);
-$updation_date = ($_POST['updation_date']);
+$server_name="localhost";
+$username = "root";
+$password = "";
+$database_name="patient_care";
 
-$bool = true;
-$db_name = "patient_care";
-$db_username = "root";
-$db_pass = "";
-$db_host = "localhost";
-$con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or
-die(mysqli_error()); //Connect to server
-$query = "SELECT * from users";
-$results = mysqli_query($con, $query); //Query the users table
-while($row = mysqli_fetch_array($results)) //display all rows from query
-{
-$table_users = $row['username']; // the first username row is passed on to $table_users, and so on until the query is finished
+$conn = mysqli_connect($server_name, $username, $password, $database_name);
 
-if($username == $table_users) // checks if there are any matching fields
+if (!$conn)
 {
-$bool = false; // sets bool to false
-Print '<script>alert("Username has been taken!");</script>'; //Prompts the user
-Print '<script>window.location.assign("register.php");</script>'; // redirects to register.php
+die("Connection Failed:" . mysqli_connect_Error());
+}
 
-}
-}
-if($bool) // checks if bool is true
+if(isset($_POST['submit']))
 {
-mysqli_query($con, "INSERT INTO 'administrator' (username, password, updation_date) VALUES ('$username', '$password', '$updation_date')"); //Inserts the value to table users
-Print '<script>alert("Successfully Registered!");</script>'; // Prompts the user
-Print '<script>window.location.assign("register_admin.php");</script>'; // redirects to register.php
+$username = $_POST['username'];
+$password = $_POST['password'];
+$updation_date = $_POST['updation_date'];
 
+$sql_query = "INSERT INTO administrator (username, password, updation_date) 
+VALUES ('$username', '$password', '$updation_date')";
+
+if(mysqli_query($conn, $sql_query))
+{
+	echo "NEW DETAILS ENTRY!";
 }
+else
+{
+	echo "Error: " . "" . mysqli_error($conn);
 }
+mysqli_close($conn);
+			}
+			
 ?>
 
