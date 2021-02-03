@@ -126,7 +126,7 @@ die("Connection Failed:" . mysqli_connect_Error());
 
 if(isset($_POST['submit']))
 {
-$username = $_POST['username'];
+$username = "admn_" . $_POST['username'];
 $password = $_POST['password'];
 $updation_date = $_POST['updation_date'];
 

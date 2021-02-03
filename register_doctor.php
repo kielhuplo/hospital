@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>My Online Store</title>
+        <title>Register Doctor</title>
     </head>
     <body>
         <center>
@@ -116,22 +116,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $password = ($_POST['password']);
     $fname = ($_POST['fname']);
     $lname = ($_POST['lname']);
-    $birth_date = ($_POST['birth_date']);
-    $sex = ($_POST['sex']);
     $contact_num = ($_POST['contact_num']);
     $email = ($_POST['email']);
-    $address_line1 = ($_POST['address_line1']);
-    $address_line2 = ($_POST['address_line2']);
-    $address_city = ($_POST['address_city']);
-    $address_state = ($_POST['address_state']);
-    $zip_code = ($_POST['zip_code']);
-    $marital_status = ($_POST['marital_status']);
-    $weight = ($_POST['weight']);
-    $height = ($_POST['height']);
-    $taking_meds = ($_POST['taking_meds']);
-    $emergency_name = ($_POST['emergency_name']);
-    $emergency_relation = ($_POST['emergency_relation']);
-    $emergency_num = ($_POST['emergency_num']);
+    $address = ($_POST['address']);
+    
     $date = strftime("%Y-%m-%d");
     $bool = true;
     $db_name = "patient_care";
