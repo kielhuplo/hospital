@@ -42,17 +42,20 @@ if($results != "") { //IF there are no returning rows or no existing username
 
             if ($login_as == "admin") {
                 $_SESSION['administrator'] = $username; //set the username in a session. This serves as a global variable
+                header("location: web_admin/index_admin.html"); // redirects the user to the authenticated home page
             } 
             
             else if ($login_as == "patient") {
                 $_SESSION['patient'] = $username; //set the username in a session. This serves as a global variable
+                header("location: web_patient/index_patient.html"); // redirects the user to the authenticated home page
             } 
             
             else if ($login_as == "doctor") {
                 $_SESSION['doctor'] = $username; //set the username in a session. This serves as a global variable
+                header("location: web_doctor/index_doctor.html"); // redirects the user to the authenticated home page
             }
             
-            header("location: homepage.html"); // redirects the user to the authenticated home page
+            
         }
     } 
     
