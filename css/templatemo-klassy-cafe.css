@@ -1162,51 +1162,51 @@ ourteam
 
 /* 
 ---------------------------------------------
-reservation
+contactus
 --------------------------------------------- 
 */
 
-#reservation .section-heading {
+#contactus .section-heading {
   margin-bottom: 30px;
 }
 
-#reservation .section-heading h6 {
+#contactus .section-heading h6 {
   color: #fff;
 }
 
-#reservation .section-heading h2 {
+#contactus .section-heading h2 {
   color: #fff;
   font-weight: 700;
 }
 
-#reservation .section-heading h6:before {
+#contactus .section-heading h6:before {
   background-color: #fff;
 }
 
-#reservation p {
+#contactus p {
   color: #fff;
   margin-bottom: 65px;
 }
 
-#reservation {
+#contactus {
   margin-top: 120px;
   padding: 120px 0px;
-  background-image: url(../images/reservation-bg.jpg);
+  background-image: url(../images/contactusbg.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-#reservation .phone,
-#reservation .message {
+#contactus .phone,
+#contactus .message {
   background-color: #fff;
   border-radius: 5px;
   text-align: center;
   padding: 0px 0px 20px 0px;
 }
 
-#reservation .phone i,
-#reservation .message i {
+#contactus .phone i,
+#contactus .message i {
   width: 70px;
   height: 70px;
   display: inline-block;
@@ -1222,23 +1222,23 @@ reservation
   margin-right: auto;
 }
 
-#reservation .phone h4,
-#reservation .message h4 {
+#contactus .phone h4,
+#contactus .message h4 {
   font-size: 20px;
   font-weight: 700;
   margin-top: 15px;
   margin-bottom: 10px;
 }
 
-#reservation .phone span a,
-#reservation .message span a {
+#contactus .phone span a,
+#contactus .message span a {
   font-size: 14px;
   color: #2a2a2a;
   transition: all .3s;
 }
 
-#reservation .phone span a:hover,
-#reservation .message span a:hover {
+#contactus .phone span a:hover,
+#contactus .message span a:hover {
   color: #4dc0d7;
 }
 
@@ -1546,7 +1546,7 @@ responsive
   #ourteam .team-item {
     margin-bottom: 30px;
   }
-  #reservation .phone {
+  #contactus .phone {
     margin-bottom: 60px;
   }
   #contact {

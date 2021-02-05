@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>My Online Store</title>
+        <title>Patient Help: Registration</title>
     </head>
     <body>
         <center>
