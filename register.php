@@ -112,7 +112,7 @@
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-    $username = "Patient_" . ($_POST['username']);
+    $username = ($_POST['username']);
     $password = ($_POST['password']);
     $fname = ($_POST['fname']);
     $lname = ($_POST['lname']);
