@@ -1,5 +1,5 @@
  <head>
- <title>My Online Store</title>
+ <title>Patient Help</title>
  </head>
  
  <body>
@@ -17,11 +17,11 @@
                     </select>
 </tr>
 	<td><label>Username:</label>
-	<td><input type="text" name="username" required="required" placeholder="..."/><br/>
+	<td><input type="text" name="username" required="required" placeholder="Enter Username"/><br/>
 </tr>
 <tr>
 	<td><label>Password:</label>
-	<td><input type="password" name="password" required="required" placeholder="..." />
+	<td><input type="password" name="password" required="required" placeholder="Enter Password" />
 </tr>
  </table><br>
  <input type="submit" value="Login"/><br/><br/>
