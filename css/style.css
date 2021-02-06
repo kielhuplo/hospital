@@ -25,6 +25,10 @@ img{max-width:100%;}
 body{
 	background:#F8FBFB;
 }
+.col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
 .wrap{
 	width:70%;
 	margin:0 auto;
