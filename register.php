@@ -1,112 +1,332 @@
-<html>
-    <head>
-        <title>Patient Help: Registration</title>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Patient Help: Registration Page</title>
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/templatemo-klassy-cafe.css">
+    <link rel="stylesheet" href="css/owl-carousel.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+    <link rel="shortcut icon" type="image/png" href="images/transparenticon.png">
     </head>
+	<style>
+	/* Mark input boxes that gets an error on validation: */
+	input.invalid {
+	  background-color: #ffdddd;
+	}
+
+	/* Hide all steps by default: */
+	.tab {
+	  display: none;
+	}
+
+	button:hover {
+	  opacity: 0.8;
+	}
+
+	#prevBtn {
+	  background-color: #bbbbbb;
+	}
+
+	/* Make circles that indicate the steps of the form: */
+	.step {
+	  height: 15px;
+	  width: 15px;
+	  margin: 0 2px;
+	  background-color: #bbbbbb;
+	  border: none;  
+	  border-radius: 50%;
+	  display: inline-block;
+	  opacity: 0.5;
+	}
+
+	.step.active {
+	  opacity: 1;
+	}
+
+	/* Mark the steps that are finished and valid: */
+	.step.finish {
+	  background-color: #4dc0d7;
+	}
+	</style>
     <body>
-        <center>
-            <h2>Registration Page</h2>
-            <form action="register.php" method="POST">
-            <table>
-                <tr>
-                    <td>Enter Username:
-                    <td><input type="text" name="username" required="required" />
-                </tr>
-                <tr>
-                    <td>Enter Password:
-                    <td><input type="password" name="password" required="required" />
-                </tr>
-                <tr>
-                    <td>Enter First Name:
-                    <td><input type="text" name="fname" required="required" />
-                </tr>
-                <tr>
-                    <td>Enter Last Name:
-                    <td><input type="text" name="lname" required="required" />
-                </tr>
-                <tr>
-                    <td><label">Enter Birthday:</label>
-                    <td><input type="date" id="birth_date" name="birth_date">
-                </tr>
-                <tr>
-                    <td><label>Enter Sex:</label>
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            <img src="images/patienthelplogo.png" align="klassy cafe html template">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+							<li class="scroll-to-section"><a href="index.html">Home</a></li> 
+                            <li class="scroll-to-section"><a href="#top" class="active">Register</a></li>
+                            <li class="scroll-to-section"><a href="login.php">Login</a></li>
+                        </ul>        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <!-- ***** Main Banner Area Start ***** -->
+    <div id="top">
+    <section class="section" id="contactus">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 align-self-center">
+                    <div class="left-text-content">
+                        <div class="section-heading">
+                            <h6>Registration</h6>
+                            <h2>Welcome to PatientHelp.</h2>
+                        </div>
+                        <p>Kindly fill out the form to create an account.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <form id="contact" action="register.php" method="POST">
+                          <div class="row">
+                            <div class="col-lg-12">
+                                <h4>Registration Form</h4>
+                            </div>
+                            <div class="col-lg-12">
+							  <!-- One "tab" for each step in the form: -->
+							  <div class="tab">
+								Enter Username:
+									<input type="text" name="username" required="required">
+								Enter Password:
+									<input type="password" name="password" required="required">
+								First Name:
+									<input type="text" name="fname" required="required">
+								Last Name:
+									<input type="text" name="lname" required="required">
+							  </div>
+							  <div class="tab">
+								Birthday:
+									<input type="date" id="birth_date" name="birth_date">
+								Sex:
+									<select name="sex">
+									<option value="m">Male</option>
+									<option value="f">Female</option>
+									</select>
+								Contact Number:
+									<input type="text" name="contact_num" required="required">
+								Email:
+									<input type="text" name="email" required="required">
+							  </div>
+							  <div class="tab">
+								Street:
+									<input type="text" name="address_line1" required="required">
+								Barangay:
+									<input type="text" name="address_line2" required="required">
+								City:
+								    <input type="text" name="address_city" required="required">
+								State:
+									<input type="text" name="address_state" required="required">
+							  </div>
+							  <div class="tab">
+								Enter Zip Code:
+									<input type="text" name="zip_code" required="required">
+								Enter Marital Status:
+									<select name="marital_status">
+									<option value="single">Single</option>
+									<option value="married">Married</option>
+									<option value="widowed">Widowed</option>
+									<option value="divorced">Divorced</option>
+									<option value="separated">Separated</option>
+									</select>
+								Enter Weight:
+									<input type="text" name="weight" required="required">
+								Enter Height:
+									<input type="text" name="height" required="required">
+							  </div>
+							  <div class="tab">
+								Currently Taking Meds?:
+									<select name="taking_meds">
+									<option value="1">Yes</option>
+									<option value="0">No</option>
+									</select>
+							    In case of emergency, contact:
+									<input type="text" name="emergency_name" required="required">
+								Relationship:
+									<input type="text" name="emergency_relation" required="required">
+								Contact Number:
+									<input type="text" name="emergency_num" required="required">
+							  </div>
+							  <div style="overflow:auto;">
+								<fieldset>
+							  	<div style="float:left;">
+								  <button type="button" id="prevBtn" onclick="nextPrev(-1)">Prev</button><br/>
+								</div>
+								<div style="float:right;">
+								  <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+								</div>
+								</fieldset>
+							  </div>
+							  <!-- Circles which indicates the steps of the form: -->
+							  <div style="text-align:center;margin-top:40px;">
+								<span class="step"></span>
+								<span class="step"></span>
+								<span class="step"></span>
+								<span class="step"></span>
+								<span class="step"></span>
+							  </div>
+							  <div class="col-lg-12">
+                              <fieldset>
+								<br/>
+								<a href="login.php"  style="color:#4dc0d7">Already have an Account? Login Here!</a>
+                              </fieldset>
+                            </div>
+                            </div>
+                          </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-xs-12">
+                    <div class="right-text-content">
+                            <ul class="social-icons">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="logo">
+                        <a href="index.html"><img src="images/white-logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-12">
+                    <div class="left-text-content">
+                        <p>© Copyright Klassy Cafe Co.  
+                        <br>Design: TemplateMo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-                    <td><select name="sex">
-                    <option value="m">Male</option>
-                    <option value="f">Female</option>
-                    </select>
-                </tr>
-                <tr>
-                    <td>Enter Contact Num:
-                    <td><input type="text" name="contact_num" required="required" />
-                </tr>
-                <tr>
-                    <td>Enter Email:
-                    <td><input type="text" name="email" required="required" />
-                </tr>
-                <tr>
-                    <td>Enter Address Line 1:
-                    <td><input type="text" name="address_line1" required="required" />
-                </tr>
-                <tr>
-                    <td>Enter Address Line 2:
-                    <td><input type="text" name="address_line2" required="required" />
-                </tr>
-                <tr>
-                    <td>Enter City:
-                    <td><input type="text" name="address_city" required="required" />
-                </tr>
-                <tr>
-                    <td>Enter State:
-                    <td><input type="text" name="address_state" required="required" />
-                </tr>
-                <tr>
-                    <td>Enter Zip Code:
-                    <td><input type="text" name="zip_code" required="required" />
-                </tr>
-                <tr>
-                    <td><label>Enter Marital Status:</label>
+    <!-- jQuery -->
+    <script src="js/jquery-2.1.0.min.js"></script>
 
-                    <td><select name="marital_status">
-                    <option value="single">Single</option>
-                    <option value="married">Married</option>
-                    <option value="widowed">Widowed</option>
-                    <option value="divorced">Divorced</option>
-                    <option value="separated">Separated</option>
-                    </select>
-                </tr>
-                <tr>
-                    <td>Enter Weight:
-                    <td><input type="text" name="weight" required="required" />
-                </tr>
-                <tr>
-                    <td>Enter Height:
-                    <td><input type="text" name="height" required="required" />
-                </tr>
-                <tr>
-                    <td><label>Currently Taking Meds?:</label>
+    <!-- Bootstrap -->
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
-                    <td><select name="taking_meds">
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
-                    </select>
-                </tr>
-                <tr>
-                    <td>In case of emergency, contact:
-                    <td><input type="text" name="emergency_name" required="required" />
-                </tr>
-                <tr>
-                    <td>Relationship:
-                    <td><input type="text" name="emergency_relation" required="required" />
-                </tr>
-                <tr>
-                    <td>Contact Number:
-                    <td><input type="text" name="emergency_num" required="required" />
-                </tr>
-            </table><br>
-            <input type="submit" value="Register"/><br/><br/>
-                <a href="login.php">Have an Account? Login Here!</a>
-        </center>
-    </body>
+    <!-- Plugins -->
+    <script src="js/owl-carousel.js"></script>
+    <script src="js/accordions.js"></script>
+    <script src="js/datepicker.js"></script>
+    <script src="js/scrollreveal.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imgfix.min.js"></script> 
+    <script src="js/slick.js"></script> 
+    <script src="js/lightbox.js"></script> 
+    <script src="js/isotope.js"></script> 
+    
+    <!-- Global Init -->
+    <script src="js/custom.js"></script>
+	
+	<script>
+	var currentTab = 0; // Current tab is set to be the first tab (0)
+	showTab(currentTab); // Display the current tab
+
+	function showTab(n) {
+	  // This function will display the specified tab of the form...
+	  var x = document.getElementsByClassName("tab");
+	  x[n].style.display = "block";
+	  //... and fix the Previous/Next buttons:
+	  if (n == 0) {
+		document.getElementById("prevBtn").style.display = "none";
+	  } else {
+		document.getElementById("prevBtn").style.display = "inline";
+	  }
+	  if (n == (x.length - 1)) {
+		document.getElementById("nextBtn").innerHTML = "Register";
+	  } else {
+		document.getElementById("nextBtn").innerHTML = "Next";
+	  }
+	  //... and run a function that will display the correct step indicator:
+	  fixStepIndicator(n)
+	}
+
+	function nextPrev(n) {
+	  // This function will figure out which tab to display
+	  var x = document.getElementsByClassName("tab");
+	  // Exit the function if any field in the current tab is invalid:
+	  if (n == 1 && !validateForm()) return false;
+	  // Hide the current tab:
+	  x[currentTab].style.display = "none";
+	  // Increase or decrease the current tab by 1:
+	  currentTab = currentTab + n;
+	  // if you have reached the end of the form...
+	  if (currentTab >= x.length) {
+		// ... the form gets submitted:
+		document.getElementById("contact").submit();
+		return false;
+	  }
+	  // Otherwise, display the correct tab:
+	  showTab(currentTab);
+	}
+
+	function validateForm() {
+	  // This function deals with validation of the form fields
+	  var x, y, i, valid = true;
+	  x = document.getElementsByClassName("tab");
+	  y = x[currentTab].getElementsByTagName("input");
+	  // A loop that checks every input field in the current tab:
+	  for (i = 0; i < y.length; i++) {
+		// If a field is empty...
+		if (y[i].value == "") {
+		  // add an "invalid" class to the field:
+		  y[i].className += " invalid";
+		  // and set the current valid status to false
+		  valid = false;
+		}
+	  }
+	  // If the valid status is true, mark the step as finished and valid:
+	  if (valid) {
+		document.getElementsByClassName("step")[currentTab].className += " finish";
+	  }
+	  return valid; // return the valid status
+	}
+
+	function fixStepIndicator(n) {
+	  // This function removes the "active" class of all steps...
+	  var i, x = document.getElementsByClassName("step");
+	  for (i = 0; i < x.length; i++) {
+		x[i].className = x[i].className.replace(" active", "");
+	  }
+	  //... and adds the "active" class on the current step:
+	  x[n].className += " active";
+	}
+</script>
+  </body>
 </html>
 
 <?php
