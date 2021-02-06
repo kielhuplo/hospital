@@ -104,6 +104,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     die(mysqli_error()); //Connect to server
     $query = "SELECT * from appointment";
     $results = mysqli_query($con, $query); //Query the patient table
+    while($row = mysqli_fetch_array($results)) //display all rows from query
+    {
+        $table_users = $row['username']; // the first username row is passed on to $table_users, and so on until the query is finished
+
+        if($username == $table_users) // checks if there are any matching fields
+        {
+            $bool = false; // sets bool to false
+            Print '<script>alert("Username has been taken!");</script>'; //Prompts the user
+            Print '<script>window.location.assign("register.php");</script>'; // redirects to register.php
+        }
+    }
     
     if($bool) // checks if bool is true
     {
