@@ -94,54 +94,51 @@
                     <td><input type="time" name="appointment_time" required="required" />
                 </tr>
                 <tr>
+                    <td>User id:
+                    <td><input type="text" name="patient_id" required="required" />
+                </tr>
+                <tr>
                     <td>Details:
                     <td><select name="details">
 									        <option value="Checkup">Checkup</option>
 									       <option value="Follow-up">Follow-up</option>
 									    </select>
                 </tr>
+                
             </table>
             <input type="submit" value="Submit"/><br/><br/>
     </form>
 
 
 <?php
+
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
+    session_start();
+    $id = $_GET['id'];
+    $_SESSION['id'] = $id;
+
     $doctor_id = ($_POST['doctor_id']);
     $appointment_date = ($_POST['appointment_date']);
     $appointment_time = ($_POST['appointment_time']);
     $details = ($_POST['details']);
+    $patient_id = ($_POST['patient_id']);
     
     $date = strftime("%Y-%m-%d");
-    $bool = true;
+    
     $db_name = "patient_care";
     $db_username = "root";
     $db_pass = "";
     $db_host = "localhost";
     $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or
     die(mysqli_error()); //Connect to server
-    $query = "SELECT * from appointment";
-    $results = mysqli_query($con, $query); //Query the patient table
-    while($row = mysqli_fetch_array($results)) //display all rows from query
-    {
-        $table_users = $row['username']; // the first username row is passed on to $table_users, and so on until the query is finished
-
-        if($username == $table_users) // checks if there are any matching fields
-        {
-            $bool = false; // sets bool to false
-            Print '<script>alert("Username has been taken!");</script>'; //Prompts the user
-            Print '<script>window.location.assign("book_appointment.php");</script>'; // redirects to register.php
-        }
-    }
-
-    if($bool) // checks if bool is true
-    {
-        mysqli_query($con, "INSERT INTO appointment (appointment_date,appointment_time,details,date_posted,doctor_id) VALUES
-        ('$appointment_date','$appointment_time','$details','$date','$doctor_id')"); //Inserts the value to table users
+    
+  
+        mysqli_query($con, "INSERT INTO appointment (appointment_date,appointment_time,details,date_posted,doctor_id,patient_id) VALUES
+        ('$appointment_date','$appointment_time','$details','$date','$doctor_id','$patient_id')"); //Inserts the value to table users
         Print '<script>alert("Appointment Sent to Doctor!");</script>'; // Prompts the user
         Print '<script>window.location.assign("book_appointment.php");</script>'; // redirects to register.php
-    }
+    
 }
 ?>
     
