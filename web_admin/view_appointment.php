@@ -27,6 +27,7 @@
             <th>DOCTOR</th>
             <th>APPOINTMENT DATE</th>
             <th>APPOINTMENT TIME</th>
+            <th>DETAILS</th>
             <th>STATUS</th>
             <th>UPDATE</th>
         </tr>
@@ -41,8 +42,7 @@
         
 	  
     
-        $query = mysqli_query($con, "Select * FROM patient inner join appointment where patient.patient_id = appointment.patient_id");
-       // $query2 = mysqli_query($con, "Select * FROM doctor inner join appointment where doctor.doctor_id = appointment.doctor_id");
+        $query = mysqli_query($con, "Select doctor.fname as doctor_fname, doctor.lname as doctor_lname, patient.fname, patient.lname, appointment.appointment_date, appointment.appointment_time, appointment.details, appointment.approval FROM patient inner join appointment inner join doctor where patient.patient_id = appointment.patient_id && appointment.doctor_id = doctor.doctor_id");
         
        $sql = "SELECT id, fname, lname FROM doctor";
 
@@ -50,59 +50,18 @@
         {
         Print '<tr>';
 	    Print '<td>' . $row['fname'] . " " . $row['lname'];
-        Print '<td>' . $row['doctor_id'];
+        Print '<td>' . $row['doctor_fname'] . " " . $row['doctor_lname'];
         Print '<td>' . $row['appointment_date'];
         Print '<td>' . $row['appointment_time'];
         Print '<td>' . $row['details'];
-        Print '<td>' . "<form action='register.php' method='POST'> <select> 
-                        <option value=CONFIRM>CONFIRM</option>
-                        <option value=CANCEL>CANCEL</option>
-                        </select> </form>" ;
+        Print '<td>' . $row['approval'];
+        Print '<td><a href="edit.php?">UPDATE</a> </td>';;
         Print '</tr>';
         }
     ?>
     </table>
     
- 
-    
 
-<?php
-if($_SERVER["REQUEST_METHOD"] == "POST")
-{
-    
-    $status = ($_POST['emergency_num']);
-
-    $date = strftime("%Y-%m-%d");
-    $bool = true;
-    $db_name = "patient_care";
-    $db_username = "root";
-    $db_pass = "";
-    $db_host = "localhost";
-    $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or
-    die(mysqli_error()); //Connect to server
-    $query = "SELECT * from appointment";
-    $results = mysqli_query($con, $query); //Query the patient table
-    while($row = mysqli_fetch_array($results)) //display all rows from query
-    {
-        $table_users = $row['username']; // the first username row is passed on to $table_users, and so on until the query is finished
-
-        if($username == $table_users) // checks if there are any matching fields
-        {
-            $bool = false; // sets bool to false
-            Print '<script>alert("Username has been taken!");</script>'; //Prompts the user
-            Print '<script>window.location.assign("register.php");</script>'; // redirects to register.php
-        }
-    }
-
-    if($bool) // checks if bool is true
-    {
-        mysqli_query($con, "INSERT INTO patient (username,password,fname,lname,birth_date,sex,contact_num,email,address_line1,address_line2,address_city,address_state,zip_code,marital_status,weight,height,taking_meds,emergency_name,emergency_relation,emergency_num,registration_date) VALUES
-        ('$username','$password','$fname','$lname','$birth_date','$sex','$contact_num','$email','$address_line1','$address_line2','$address_city','$address_state','$zip_code','$marital_status','$weight','$height','$taking_meds','$emergency_name','$emergency_relation','$emergency_num','$date')"); //Inserts the value to table users
-        Print '<script>alert("Successfully Registered!");</script>'; // Prompts the user
-        Print '<script>window.location.assign("register.php");</script>'; // redirects to register.php
-    }
-}
-?>
 
 </body>
 </html>
