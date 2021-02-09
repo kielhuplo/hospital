@@ -21,21 +21,21 @@
   
     <table align="center" border="1px">
         <tr>
-            <th>DOCTOR</th>
+            <th>PATIENT</th>
             <th>APPOINTMENT DATE</th>
             <th>APPOINTMENT TIME</th>
             <th>DATE POSTED</th>
             <th>PATIENT_ID</th>
-            <th>DOCTOR_ID</th>
             <th>STATUS</th>
         </tr>
 
     <?php
 
         $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error());
-        $query = mysqli_query($con, "Select * FROM doctor inner join appointment where doctor.doctor_id = appointment.doctor_id");
+        $query = mysqli_query($con, "Select * FROM patient inner join appointment where patient.patient_id = appointment.patient_id");
         
 
+        
         while($row = mysqli_fetch_array($query))
         {
         Print '<tr>';
@@ -44,8 +44,10 @@
         Print '<td>' . $row['appointment_time'];
         Print '<td>' . $row['date_posted'];
         Print '<td>' . $row['patient_id'];
-        Print '<td>' . $row['doctor_id'];
-        Print '<td>' . "CONFIRMED";
+        Print '<td>' . "<form action='register.php' method='POST'> <select> 
+                        <option value=CONFIRM>CONFIRM</option>
+                        <option value=CANCEL>CANCEL</option>
+                        </select> </form>" ;
         Print '</tr>';
         }
     ?>
