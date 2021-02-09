@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,40 +10,6 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Patient Help</title>
       <link rel="shortcut icon" type="image/png" href="../images/transparenticon.png">
-      <style>
-        .modal {
-          display: none; /* Hidden by default */
-          position: fixed; /* Stay in place */
-          z-index: 1; /* Sit on top */
-          padding-top: 100px; /* Location of the box */
-          left: 0;
-          top: 0;
-          width: 100%; /* Full width */
-          height: 100%; /* Full height */
-          overflow: auto; /* Enable scroll if needed */
-          background-color: rgb(0,0,0); /* Fallback color */
-          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-        }
-        .modal-content {
-          background-color: #fefefe;
-          margin: auto;
-          padding: 20px;
-          border: 1px solid #888;
-          width: 80%;
-        }
-        .close {
-          color: #aaaaaa;
-          float: right;
-          font-size: 28px;
-          font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-          color: #000;
-          text-decoration: none;
-          cursor: pointer;
-        }
-      </style>
   </head>
 
   <body>
@@ -94,10 +64,6 @@
                     <td><input type="time" name="appointment_time" required="required" />
                 </tr>
                 <tr>
-                    <td>User id:
-                    <td><input type="text" name="patient_id" required="required" />
-                </tr>
-                <tr>
                     <td>Details:
                     <td><select name="details">
 									        <option value="Checkup">Checkup</option>
@@ -114,15 +80,11 @@
 
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-    session_start();
-    $id = $_GET['id'];
-    $_SESSION['id'] = $id;
-
     $doctor_id = ($_POST['doctor_id']);
     $appointment_date = ($_POST['appointment_date']);
     $appointment_time = ($_POST['appointment_time']);
     $details = ($_POST['details']);
-    $patient_id = ($_POST['patient_id']);
+    $patient_id = $_SESSION['user_id'];
     
     $date = strftime("%Y-%m-%d");
     

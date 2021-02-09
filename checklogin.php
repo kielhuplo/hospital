@@ -1,5 +1,3 @@
-<html>
-
 <?php
 session_start();
 $username = ($_POST['username']);
@@ -26,12 +24,25 @@ else if ($login_as == "doctor") {
 
 $results = mysqli_query($con, $query); //Query the users table if there are matching rows equal to $username
 $exists = mysqli_num_rows($con, $query); //Checks if username exists
+$user_id = "";
 $table_users = "";
 $table_password = "";
 
 if($results != "") { //IF there are no returning rows or no existing username
 
     while($row = mysqli_fetch_assoc($results)) { //display all rows from query
+        if ($login_as == "admin") {
+            $user_id = $row['admin_id'];
+        } 
+        
+        else if ($login_as == "patient") {
+            $user_id = $row['patient_id'];
+        } 
+        
+        else if ($login_as == "doctor") {
+            $user_id = $row['doctor_id'];
+        }
+
         $table_users = $row['username']; // the first username row is passed on to $table_users, and so on until the query is finished
         $table_password = $row['password']; // the first password row is passed on to $table_users, and so on until the query is finished
     }
@@ -41,21 +52,21 @@ if($results != "") { //IF there are no returning rows or no existing username
         if($password == $table_password) {
 
             if ($login_as == "admin") {
-                $_SESSION['administrator'] = $username; //set the username in a session. This serves as a global variable
+                $_SESSION['administrator_username'] = $username; //set the username in a session. This serves as a global variable
                 header("location: web_admin/index_admin.html"); // redirects the user to the authenticated home page
             } 
             
             else if ($login_as == "patient") {
-                $_SESSION['patient'] = $username; //set the username in a session. This serves as a global variable
+                $_SESSION['patient_username'] = $username; //set the username in a session. This serves as a global variable
                 header("location: web_patient/index_patient.html"); // redirects the user to the authenticated home page
             } 
             
             else if ($login_as == "doctor") {
-                $_SESSION['doctor'] = $username; //set the username in a session. This serves as a global variable
+                $_SESSION['doctor_username'] = $username; //set the username in a session. This serves as a global variable
                 header("location: web_doctor/index_doctor.html"); // redirects the user to the authenticated home page
             }
             
-            
+            $_SESSION['user_id'] = $user_id;
         }
     } 
     
