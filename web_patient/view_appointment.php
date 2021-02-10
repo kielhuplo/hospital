@@ -1,9 +1,14 @@
 <?php
     session_start();
+    if (isset($_SESSION['username'])) {
+
+    }
+    else {
+        header("location: ../index.html");
+    }
 ?>
 
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -51,8 +56,5 @@
         }
     ?>
     </table>
-    
- 
-    
 </body>
 </html>
