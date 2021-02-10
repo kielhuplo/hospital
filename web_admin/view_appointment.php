@@ -30,6 +30,7 @@
             <th>DETAILS</th>
             <th>STATUS</th>
             <th>UPDATE</th>
+            <th>Delete</th>
         </tr>
 
     
@@ -38,10 +39,6 @@
     <?php
 
         $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error());
-
-        
-	  
-    
         $query = mysqli_query($con, "Select doctor.fname as doctor_fname, doctor.lname as doctor_lname, patient.fname, patient.lname, appointment.appointment_date, appointment.appointment_time, appointment.details, appointment.approval FROM patient inner join appointment inner join doctor where patient.patient_id = appointment.patient_id && appointment.doctor_id = doctor.doctor_id");
         
        $sql = "SELECT id, fname, lname FROM doctor";
@@ -55,7 +52,8 @@
         Print '<td>' . $row['appointment_time'];
         Print '<td>' . $row['details'];
         Print '<td>' . $row['approval'];
-        Print '<td><a href="edit.php?">UPDATE</a> </td>';;
+        Print '<td><a href="edit.php?">UPDATE</a> </td>';
+        Print '<td><a href="delete.php">DELETE</a> </td>';
         Print '</tr>';
         }
     ?>
