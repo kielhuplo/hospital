@@ -30,11 +30,17 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+							<li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#about">About Us</a></li>
 							<li class="scroll-to-section"><a href="#ourteam">Our Team</a></li> 
                             <li class="scroll-to-section"><a href="#contactus">Contact Us</a></li> 
-                            <li class="scroll-to-section"><a href="book_appointment.php">Book an Appointment</a></li>
+                            <li class="submenu">
+                                <a href="javascript:;">Appointment</a>
+                                <ul>
+                                    <li><a href="book_appointment.php">Book Appointment</a></li>
+                                    <li><a href="view_appointment.php">View Appointment</a></li>
+                                </ul>
+                            </li>
                             <li class="scroll-to-section"><a href="../logout.php"><input type = button value = logout name = logout></a></li>  
                         </ul>        
                         <a class='menu-trigger'>
@@ -58,7 +64,7 @@
 						<img src="../images/white-logo.png" alt="">
                             <h6>Scheduling Website for Healthcare Facilities</h6>
                             <div class="main-white-button scroll-to-section">
-                                <a href="#about">Your Account</a>
+                                <a href="book_appointment.php">Make an Appointment</a>
                             </div>
                         </div>
                     </div>
@@ -125,11 +131,11 @@
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="right-content">
                         <div class="thumb">
-						<a href="../register.php">
-							<img src="../images/register.png" alt="">
+						<a href="schedule_appointment.php">
+							<img src="../images/schedapp.png" alt="">
 						</a>
-						<a href="../login.php">
-							<img src="../images/login.png" alt="">
+						<a href="book_appointment.php">
+							<img src="../images/viewapp.png" alt="">
                         </a>
 						</div>
                     </div>
@@ -140,7 +146,7 @@
     <!-- ***** About Area Ends ***** -->
 
 
-    <!-- ***** Chefs Area Starts ***** -->
+    <!-- ***** Our Team Area Starts ***** -->
     <section class="section" id="ourteam">
         <div class="container">
             <div class="row">
@@ -152,7 +158,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-4 offset-lg-2">
                     <div class="team-item">
                         <div class="thumb">
                             <div class="overlay"></div>
@@ -186,7 +192,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+			</div>
+			
+			<div class="row">
+                <div class="col-lg-4 offset-lg-2">
                     <div class="team-item">
                         <div class="thumb">
                             <div class="overlay"></div>
@@ -223,9 +232,9 @@
             </div>
         </div>
     </section>
-    <!-- ***** Chefs Area Ends ***** -->
+    <!-- ***** Our Team Area Ends ***** -->
 
-    <!-- ***** Reservation Us Area Starts ***** -->
+    <!-- ***** Contact Us Area Starts ***** -->
     <section class="section" id="contactus">
         <div class="container">
             <div class="row">
@@ -303,7 +312,7 @@
             </div>
         </div>
     </section>
-    <!-- ***** Reservation Area Ends ***** -->
+    <!-- ***** Contact Us Area Ends ***** -->
     
     <!-- ***** Footer Start ***** -->
     <footer>
