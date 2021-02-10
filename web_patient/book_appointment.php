@@ -21,17 +21,16 @@
 
       <?php
       $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error()); //Connect to server
-      $query = mysqli_query($con, "select * from doctor inner join doctor_schedule on doctor.doctor_id = doctor_schedule.doctor_id"); // SQL Query
-      
+      $query = mysqli_query($con, "select * from doctor inner join doctor_schedule on doctor.doctor_id = doctor_schedule.doctor_id order by doctor.doctor_id asc"); // SQL Query
+
       while($row = mysqli_fetch_array($query)) {
-          Print "<tr>";
-          Print "<td>" . $row['fname'] . " " . $row['lname'] . "</td>";
-          Print "<td>" . "Contact Num: " . $row['contact_num'] .  
-                "<br>Email: " . $row['email'] .
-                "<br>Specialization: " . $row['spec_detail'] .
-                "<br><br>Schedule:<br>" . $row['day'] . ": " . $row['time_from'] . " - " . $row['time_to'] . "</td>";
-          Print "</tr>";
-          Print "";
+        Print "<td>" . $row['fname'] . " " . $row['lname'] . "</td>";
+        Print "<td>" . "Contact Num: " . $row['contact_num'] .  
+            "<br>Email: " . $row['email'] .
+            "<br>Specialization: " . $row['spec_detail'];
+        Print "<br><br>Schedule:<br>" . $row['day'] . ": " . $row['time_from'] . " - " . $row['time_to'] . "</td>";
+        Print "</tr>";
+        Print "";
       }
       ?>
     </table>
