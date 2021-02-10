@@ -44,7 +44,7 @@
     <body>
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
-        <div class="container" id="popmodal">
+        <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
@@ -55,13 +55,13 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="index_patient.html">Home</a></li>
+                            <li class="scroll-to-section"><a href="index_patient.php">Home</a></li>
 							<li class="scroll-to-section"><a href="#ourteam">Our Doctors</a></li> 
                             <li class="submenu">
                                 <a href="javascript:;">Appointment</a>
                                 <ul>
-                                    <li><a href="#">Book Appointment</a></li>
-                                    <li><a href="#">View Appointment</a></li>
+                                    <li><a href="book_appointment.php">Book Appointment</a></li>
+                                    <li><a href="view_appointment.php">View Appointment</a></li>
                                 </ul>
                             </li>
 							<li><a href="../logout.php">Logout</a></li> 
@@ -253,20 +253,5 @@
     
     <!-- Global Init -->
     <script src="../js/custom.js"></script>
-    <script>
-        $(function() {
-            var selectedClass = "";
-            $("p").click(function(){
-            selectedClass = $(this).attr("data-rel");
-            $("#portfolio").fadeTo(50, 0.1);
-                $("#portfolio div").not("."+selectedClass).fadeOut();
-            setTimeout(function() {
-              $("."+selectedClass).fadeIn();
-              $("#portfolio").fadeTo(50, 1);
-            }, 500);
-                
-            });
-        });
-    </script>
   </body>
 </html>
