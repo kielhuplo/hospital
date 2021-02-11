@@ -185,12 +185,22 @@
 					  <?php
 					  $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error()); //Connect to server
 					  $query = mysqli_query($con, "select * from doctor inner join doctor_schedule on doctor.doctor_id = doctor_schedule.doctor_id"); // SQL Query
+            $doctor_id_sched = '';
 					  
 					  while($row = mysqli_fetch_array($query)) {
+
+              $doctor_id_sched = $row['doctor_id']; //get current doctor_id to view their schedule
+
 						  Print "<tr>";
 						  Print "<td>" . $row['fname'] . " " . $row['lname'] . "</td>";
-						  Print "<td>" . $row['spec_detail']. "<br><i>" . $row['day'] . ": " . $row['time_from'] . " - " . $row['time_to'] . "</i>" . "</td>";
-						  Print "<td>" . "Contact Num: " . $row['contact_num'] .  
+						  Print "<td>" . $row['spec_detail']. "<br>";
+
+              $query_sched = mysqli_query($con, "SELECT day, time_from, time_to FROM doctor_schedule WHERE doctor_id = '".$doctor_id_sched."'"); //get schedule of doctor based on $doctor_id_sched
+              while($row_sched = mysqli_fetch_array($query_sched)) {  //while loop to output schedule table
+                Print "<i>" . $row_sched['day'] . ": " . $row_sched['time_from'] . " - " . $row_sched['time_to'] . "</i><br/>";
+              }
+
+						  Print "</td><td>" . "Contact Num: " . $row['contact_num'] .  
 								"<br>Email: " . $row['email'] . "</td>";
 						  Print "</tr>";
 						  Print "";
