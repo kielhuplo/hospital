@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (isset($_SESSION['username'])) {
-
+        $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error());
     }
     else {
         header("location: ../index.html");
@@ -97,7 +97,6 @@
             <th>STATUS</th>
         </tr>
     <?php
-        $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error());
         $user_id = $_SESSION['user_id'];
         $query = mysqli_query($con, "SELECT appointment_date, appointment_time, date_posted, CONCAT(fname, \" \", lname) AS doctor_assigned, approval as status FROM `appointment` INNER JOIN doctor on doctor.doctor_id = appointment.doctor_id WHERE patient_id = '".$user_id."' ORDER BY appointment_date asc");
         
@@ -128,27 +127,35 @@
 						<h2>Need Details?</h2>
                     </div>
                 </div>
-                    <table border="1px" width="50%">
-					  <tr>
-						  <th>Doctor Name</th>
-						  <th>Specialization</th>
-						  <th>Details</th>
-					  </tr>
-					  <?php
-					  $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error()); //Connect to server
-					  $query = mysqli_query($con, "select * from doctor inner join doctor_schedule on doctor.doctor_id = doctor_schedule.doctor_id"); // SQL Query
-					  
-					  while($row = mysqli_fetch_array($query)) {
-						  Print "<tr>";
-						  Print "<td>" . $row['fname'] . " " . $row['lname'] . "</td>";
-						  Print "<td>" . $row['spec_detail']. "<br><i>" . $row['day'] . ": " . $row['time_from'] . " - " . $row['time_to'] . "</i>" . "</td>";
-						  Print "<td>" . "Contact Num: " . $row['contact_num'] .  
-								"<br>Email: " . $row['email'] . "</td>";
-						  Print "</tr>";
-						  Print "";
-					  }
-					  ?>
-					</table>
+                <table border="1px" width="50%">
+                    <tr>
+                        <th>Doctor Name</th>
+                        <th>Specialization</th>
+                        <th>Details</th>
+                    </tr>
+                
+                    <?php
+                        $query = mysqli_query($con, "select * from doctor inner join doctor_schedule on doctor.doctor_id = doctor_schedule.doctor_id order by doctor.doctor_id asc"); // SQL Query
+                    
+                        while($row = mysqli_fetch_array($query)) {
+
+                            $doctor_id_sched = $row['doctor_id']; //get current doctor_id to view their schedule
+
+                            Print "<tr>";
+                            Print "<td>" . $row['fname'] . " " . $row['lname'] . "</td>";
+                            Print "<td>" . $row['spec_detail']. "<br>";
+
+                            $query_sched = mysqli_query($con, "SELECT day, time_from, time_to FROM doctor_schedule WHERE doctor_id = '".$doctor_id_sched."'"); //get schedule of doctor based on $doctor_id_sched
+                            while($row_sched = mysqli_fetch_array($query_sched)) {  //while loop to output schedule table
+                                Print "<i>" . $row_sched['day'] . ": " . $row_sched['time_from'] . " - " . $row_sched['time_to'] . "</i><br/>";
+                            }
+
+                            Print "</td><td>" . "Contact Num: " . $row['contact_num'] .  "<br>Email: " . $row['email'] . "</td>";
+                            Print "</tr>";
+                            Print "";
+                        }
+                    ?>
+				</table>
 			</div>
         </div>
     </section>

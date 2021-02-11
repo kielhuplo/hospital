@@ -51,7 +51,7 @@
                                     <li><a href="view_appointment.php">View Appointment</a></li>
                                 </ul>
                             </li>
-                            <li class="scroll-to-section"><a href="../logout.php"><input type = button value = logout name = logout></a></li>  
+                            <li><a href="../logout.php">Logout</a></li>   
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>

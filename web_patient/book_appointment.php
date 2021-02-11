@@ -1,7 +1,12 @@
 <?php
     session_start();
     if (isset($_SESSION['username'])) {
-
+        $db_name = "patient_care";
+        $db_username = "root";
+        $db_pass = "";
+        $db_host = "localhost";
+        $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or
+        die(mysqli_error()); //Connect to server
     }
     else {
       header("location: ../index.html");
@@ -95,18 +100,15 @@
                             <div class="col-lg-6">
                               <fieldset>
 									<br/>Doctor:
+
 									<select name="doctor_id">
-										<option value="6">Dexter Bentley</option>
-										<option value="7">Honey Lawson</option>
-										<option value="8">Thomas Wheatley</option>
-										<option value="9">Nala Barr</option>
-										<option value="10">Monica Driscoll</option>
-										<option value="11">Julius Schmidt</option>
-										<option value="12">Jamal Swift</option>
-										<option value="13">Tyrell Welch</option>
-										<option value="14">Elena Kouma</option>
-										<option value="15">Rico Alba  </option>
-									</select>							  
+                                        <?php
+                                            $doctor_query = mysqli_query($con, "SELECT doctor_id, CONCAT(fname, \" \", lname) AS doctor_assigned FROM doctor ORDER BY doctor_id ASC"); // SQL Query
+                                            while($doctor_row = mysqli_fetch_array($doctor_query)){
+                                                Print "<option value=\"" . $doctor_row['doctor_id'] . "\">" . $doctor_row['doctor_assigned'] . "</option>";  // output doctors on dropdown
+                                            }
+                                        ?>
+									</select>
                               </fieldset>
 							  <fieldset>
 									Appointment Date:
@@ -134,21 +136,12 @@
 							$details = ($_POST['details']);
 							$patient_id = $_SESSION['user_id'];
 							
-							$date = strftime("%Y-%m-%d");
-							
-							$db_name = "patient_care";
-							$db_username = "root";
-							$db_pass = "";
-							$db_host = "localhost";
-							$con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or
-							die(mysqli_error()); //Connect to server
-							
+							$date = strftime("%Y-%m-%d");							
 						  
-								mysqli_query($con, "INSERT INTO appointment (appointment_date,appointment_time,details,date_posted,doctor_id,patient_id) VALUES
-								('$appointment_date','$appointment_time','$details','$date','$doctor_id','$patient_id')"); //Inserts the value to table users
-								Print '<script>alert("Appointment Sent to Doctor!");</script>'; // Prompts the user
-								Print '<script>window.location.assign("book_appointment.php");</script>'; // redirects to register.php
-							
+                            mysqli_query($con, "INSERT INTO appointment (appointment_date,appointment_time,details,date_posted,doctor_id,patient_id) VALUES
+                            ('$appointment_date','$appointment_time','$details','$date','$doctor_id','$patient_id')"); //Inserts the value to table users
+                            Print '<script>alert("Appointment Sent to Doctor!");</script>'; // Prompts the user
+                            Print '<script>window.location.assign("book_appointment.php");</script>'; // redirects to register.php
 						}
 						?>
                     </div>
@@ -176,37 +169,35 @@
 						<h2>Need Details?</h2>
                     </div>
                 </div>
-                    <table border="1px" width="50%">
-					  <tr>
-						  <th>Doctor Name</th>
-						  <th>Specialization</th>
-						  <th>Details</th>
-					  </tr>
-					  <?php
-					  $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error()); //Connect to server
-					  $query = mysqli_query($con, "select * from doctor inner join doctor_schedule on doctor.doctor_id = doctor_schedule.doctor_id"); // SQL Query
-            $doctor_id_sched = '';
-					  
-					  while($row = mysqli_fetch_array($query)) {
+                <table border="1px" width="50%">
+                    <tr>
+                        <th>Doctor Name</th>
+                        <th>Specialization</th>
+                        <th>Details</th>
+                    </tr>
+                
+                    <?php
+                        $query = mysqli_query($con, "select * from doctor inner join doctor_schedule on doctor.doctor_id = doctor_schedule.doctor_id order by doctor.doctor_id asc"); // SQL Query
 
-              $doctor_id_sched = $row['doctor_id']; //get current doctor_id to view their schedule
+                        while($row = mysqli_fetch_array($query)) {
 
-						  Print "<tr>";
-						  Print "<td>" . $row['fname'] . " " . $row['lname'] . "</td>";
-						  Print "<td>" . $row['spec_detail']. "<br>";
+                            $doctor_id_sched = $row['doctor_id']; //get current doctor_id to view their schedule
 
-              $query_sched = mysqli_query($con, "SELECT day, time_from, time_to FROM doctor_schedule WHERE doctor_id = '".$doctor_id_sched."'"); //get schedule of doctor based on $doctor_id_sched
-              while($row_sched = mysqli_fetch_array($query_sched)) {  //while loop to output schedule table
-                Print "<i>" . $row_sched['day'] . ": " . $row_sched['time_from'] . " - " . $row_sched['time_to'] . "</i><br/>";
-              }
+                            Print "<tr>";
+                            Print "<td>" . $row['fname'] . " " . $row['lname'] . "</td>";
+                            Print "<td>" . $row['spec_detail']. "<br>";
 
-						  Print "</td><td>" . "Contact Num: " . $row['contact_num'] .  
-								"<br>Email: " . $row['email'] . "</td>";
-						  Print "</tr>";
-						  Print "";
-					  }
-					  ?>
-					</table>
+                            $query_sched = mysqli_query($con, "SELECT day, time_from, time_to FROM doctor_schedule WHERE doctor_id = '".$doctor_id_sched."'"); //get schedule of doctor based on $doctor_id_sched
+                            while($row_sched = mysqli_fetch_array($query_sched)) {  //while loop to output schedule table
+                                Print "<i>" . $row_sched['day'] . ": " . $row_sched['time_from'] . " - " . $row_sched['time_to'] . "</i><br/>";
+                            }
+
+                            Print "</td><td>" . "Contact Num: " . $row['contact_num'] .  "<br>Email: " . $row['email'] . "</td>";
+                            Print "</tr>";
+                            Print "";
+                        }
+                    ?>
+				</table>
 			</div>
         </div>
     </section>
