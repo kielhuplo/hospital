@@ -53,7 +53,7 @@ if($results != "") { //IF there are no returning rows or no existing username
         if($password == $table_password) {
 
             if ($login_as == "admin") {
-                header("location: web_admin/index_admin.html"); // redirects the user to the authenticated home page
+                header("location: web_admin/index_admin.php"); // redirects the user to the authenticated home page
             } 
             
             else if ($login_as == "patient") {
@@ -61,7 +61,7 @@ if($results != "") { //IF there are no returning rows or no existing username
             } 
             
             else if ($login_as == "doctor") {
-                header("location: web_doctor/index_doctor.html"); // redirects the user to the authenticated home page
+                header("location: web_doctor/index_doctor.php"); // redirects the user to the authenticated home page
             }
 
             $_SESSION['username'] = $username; //set the username in a session. This serves as a global variable

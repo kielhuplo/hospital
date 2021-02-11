@@ -340,7 +340,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="logo">
-                        <a href="index_admin.html"><img src="../images/white-logo.png" alt=""></a>
+                        <a href="index_admin.php"><img src="../images/white-logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xs-12">

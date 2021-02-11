@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,6 +36,7 @@
 							<li class="scroll-to-section"><a href="#ourteam">Our Team</a></li> 
                             <li class="scroll-to-section"><a href="#contactus">Contact Us</a></li> 
                             <li class="scroll-to-section"><a href="view_appointment.php">View Appointment</a></li> 
+                            <li><a href="../logout.php">Logout</a></li>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
