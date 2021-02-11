@@ -3,6 +3,7 @@ session_start();
 $username = ($_POST['username']);
 $password = ($_POST['password']);
 $login_as = ($_POST['loginAs']);
+$_SESSION['login_as'] = $login_as;
 $db_name = "patient_care";
 $db_username = "root";
 $db_pass = "";
@@ -52,21 +53,20 @@ if($results != "") { //IF there are no returning rows or no existing username
         if($password == $table_password) {
 
             if ($login_as == "admin") {
-                $_SESSION['administrator_username'] = $username; //set the username in a session. This serves as a global variable
                 header("location: web_admin/index_admin.html"); // redirects the user to the authenticated home page
             } 
             
             else if ($login_as == "patient") {
-                $_SESSION['patient_username'] = $username; //set the username in a session. This serves as a global variable
-                header("location: web_patient/index_patient.html"); // redirects the user to the authenticated home page
+                header("location: web_patient/index_patient.php"); // redirects the user to the authenticated home page
             } 
             
             else if ($login_as == "doctor") {
-                $_SESSION['doctor_username'] = $username; //set the username in a session. This serves as a global variable
                 header("location: web_doctor/index_doctor.html"); // redirects the user to the authenticated home page
             }
-            
+
+            $_SESSION['username'] = $username; //set the username in a session. This serves as a global variable
             $_SESSION['user_id'] = $user_id;
+            $_SESSION['login_date_time'] = strftime("%Y-%m-%d %H:%M:%S");
         }
     } 
     
