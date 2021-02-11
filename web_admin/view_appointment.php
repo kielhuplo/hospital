@@ -1,10 +1,10 @@
 <?php
     session_start();
 ?>
-
 <!DOCTYPE html>
 
 <html lang="en">
+  <head>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,37 +22,47 @@
     <link rel="shortcut icon" type="image/png" href="images/transparenticon.png">
     </head>
     <body>
-  
+    
+
     <table align="center" border="1px">
         <tr>
+            <th>PATIENT</th>
+            <th>DOCTOR</th>
             <th>APPOINTMENT DATE</th>
             <th>APPOINTMENT TIME</th>
-            <th>DATE POSTED</th>
-            <th>DOCTOR ASSIGNED</th>
+            <th>DETAILS</th>
             <th>STATUS</th>
+            <th>UPDATE</th>
+            <th>Delete</th>
         </tr>
+
+    
+
 
     <?php
 
         $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error());
-        $user_id = $_SESSION['user_id'];
-        $query = mysqli_query($con, "SELECT appointment_date, appointment_time, date_posted, CONCAT(fname, \" \", lname) AS doctor_assigned, approval as status FROM `appointment` INNER JOIN doctor on doctor.doctor_id = appointment.doctor_id WHERE patient_id = '".$user_id."' ORDER BY appointment_date asc");
+        $query = mysqli_query($con, "Select doctor.fname as doctor_fname, doctor.lname as doctor_lname, patient.fname, patient.lname, appointment.appointment_date, appointment.appointment_time, appointment.details, appointment.approval FROM patient inner join appointment inner join doctor where patient.patient_id = appointment.patient_id && appointment.doctor_id = doctor.doctor_id ORDER BY appointment_date asc");
         
+       $sql = "SELECT id, fname, lname FROM doctor";
 
         while($row = mysqli_fetch_array($query))
         {
         Print '<tr>';
+	    Print '<td>' . $row['fname'] . " " . $row['lname'];
+        Print '<td>' . $row['doctor_fname'] . " " . $row['doctor_lname'];
         Print '<td>' . $row['appointment_date'];
         Print '<td>' . $row['appointment_time'];
-        Print '<td>' . $row['date_posted'];
-        Print '<td>' . $row['doctor_assigned'];
-        Print '<td>' . $row['status'];
+        Print '<td>' . $row['details'];
+        Print '<td>' . $row['approval'];
+        Print '<td><a href="edit.php">UPDATE</a> </td>';
+        Print '<td><a href="delete.php">DELETE</a> </td>';
         Print '</tr>';
         }
     ?>
     </table>
     
- 
-    
+
+
 </body>
 </html>
