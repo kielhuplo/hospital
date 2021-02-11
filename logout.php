@@ -21,6 +21,8 @@
         } 
         
         else if ($_SESSION['login_as'] == "doctor") {
+            mysqli_query($con, "INSERT INTO doctor_log (login_date_time,logout_date_time,doctor_id) VALUES
+                ('$login_date_time','$logout_date_time','$user_id')");
         }
 
         session_destroy();

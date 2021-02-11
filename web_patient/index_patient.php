@@ -44,9 +44,6 @@
                             <li class="scroll-to-section"><a href="#about">About Us</a></li>
 							<li class="scroll-to-section"><a href="#ourteam">Our Team</a></li> 
                             <li class="scroll-to-section"><a href="#contactus">Contact Us</a></li> 
-<<<<<<< HEAD:web_admin/index_admin.php
-                            <li class="scroll-to-section"><a href="view_appointment.php">View Appointment</a></li> 
-=======
                             <li class="submenu">
                                 <a href="javascript:;">Appointment</a>
                                 <ul>
@@ -55,7 +52,6 @@
                                 </ul>
                             </li>
                             <li><a href="../logout.php">Logout</a></li>   
->>>>>>> a351451b1085f04b2a13f253934d72485caecddd:web_patient/index_patient.php
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -344,7 +340,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="logo">
-                        <a href="index_admin.html"><img src="../images/white-logo.png" alt=""></a>
+                        <a href="index_admin.php"><img src="../images/white-logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xs-12">
