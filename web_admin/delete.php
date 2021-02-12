@@ -12,9 +12,9 @@ $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_err
     $sql = "DELETE FROM appointment WHERE appointment_no = $id";
 	    
     $data = mysqli_query($con, $sql);
-	    if($data)
+	    if(mysqli_query($con, $sql))
 	    {
-	    	echo "DATA DELETED";
+	    	header("refresh:1; url=view_appointment.php");
 	    }
 	    else
 	    {
