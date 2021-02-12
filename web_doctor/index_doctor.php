@@ -1,6 +1,7 @@
 <?php
     session_start();
     if (isset($_SESSION['username'])) {
+<<<<<<< HEAD
         $db_name = "patient_care";
         $db_username = "root";
         $db_pass = "";
@@ -10,6 +11,12 @@
     }
     else {
       header("location: ../index.html");
+=======
+		$username=($_SESSION['username']);
+    }
+    else {
+        header("location: ../index.html");
+>>>>>>> 92e35a3ba2bfe9a7f95a12fef99d3232c7329d90
     }
 ?>
 <!DOCTYPE html>
@@ -116,8 +123,12 @@
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="left-text-content">
                         <div class="section-heading">
-                            <h6>About Us</h6>
-                            <h2>Your Health is our Priority</h2>
+                            <h6>My Account</h6>
+                            <h2>
+								<?php
+								echo "WELCOME, " . strtoupper($username);
+								?>
+							</h2>
                         </div>
                         <p>We at PatientHelp believes that Digitalization is one of the key of Innovation. 
 						<br/><br/>By making appointment digitally or available on the internet, scheduling and meeting your Doctor in an orderly fashion could help many patients during this time of pandemic. 
