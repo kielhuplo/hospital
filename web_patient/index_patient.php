@@ -51,6 +51,7 @@
                                     <li><a href="view_appointment.php">View Appointment</a></li>
                                 </ul>
                             </li>
+                            <li><a href="view_account.php">View Account</a></li>   
                             <li><a href="../logout.php">Logout</a></li>   
                         </ul>        
                         <a class='menu-trigger'>
