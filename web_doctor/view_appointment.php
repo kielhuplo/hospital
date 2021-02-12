@@ -1,6 +1,18 @@
 <?php
     session_start();
+    if (isset($_SESSION['username'])) {
+        $db_name = "patient_care";
+        $db_username = "root";
+        $db_pass = "";
+        $db_host = "localhost";
+        $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or
+        die(mysqli_error()); //Connect to server
+    }
+    else {
+      header("location: ../index.html");
+    }
 ?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -34,22 +46,25 @@
 
     <?php
 
-        $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error());
         $user_id = $_SESSION['user_id'];
         $query = mysqli_query($con, "SELECT appointment_date, appointment_time, date_posted, CONCAT(fname, \" \", lname) AS patient_assigned, approval as status FROM `appointment` INNER JOIN patient on patient.patient_id = appointment.patient_id WHERE doctor_id = '".$user_id."' ORDER BY appointment_date asc");
         
-
-        
         while($row = mysqli_fetch_array($query))
         {
-        Print '<tr>';
-	    Print '<td>' . $row['patient_assigned'];
-        Print '<td>' . $row['appointment_date'];
-        Print '<td>' . $row['appointment_time'];
-        Print '<td>' . $row['date_posted'];
-        Print '<td>' . $row['status'];
-        Print '<td><a href="edit.php?">UPDATE</a> </td>';
-        Print '</tr>';
+            Print '<tr>';
+            Print '<td>' . $row['patient_assigned'];
+            Print '<td>' . $row['appointment_date'];
+            Print '<td>' . $row['appointment_time'];
+            Print '<td>' . $row['date_posted'];
+            Print "<td><select name=\"doctor_approval\">";
+            Print "<option value=\"" . $row['status'] . "\" selected disabled hidden>" . $row['status'] . "</option>";
+            Print "<option value=\"pending\">Pending</option>";
+            Print "<option value=\"approved\">Approved</option>";
+            Print "<option value=\"declined\">Declined</option>";
+            Print "</select>";
+            // Print '<td><a href="edit.php?">UPDATE</a> </td>';
+            Print "<td><input type=\"submit\" value=\"Update\">";
+            Print '</tr>';
         }
     ?>
     </table>
@@ -60,38 +75,12 @@
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-    
-    $status = ($_POST['emergency_num']);
-
-    $date = strftime("%Y-%m-%d");
-    $bool = true;
-    $db_name = "patient_care";
-    $db_username = "root";
-    $db_pass = "";
-    $db_host = "localhost";
-    $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or
-    die(mysqli_error()); //Connect to server
-    $query = "SELECT * from appointment";
-    $results = mysqli_query($con, $query); //Query the patient table
-    while($row = mysqli_fetch_array($results)) //display all rows from query
-    {
-        $table_users = $row['username']; // the first username row is passed on to $table_users, and so on until the query is finished
-
-        if($username == $table_users) // checks if there are any matching fields
-        {
-            $bool = false; // sets bool to false
-            Print '<script>alert("Username has been taken!");</script>'; //Prompts the user
-            Print '<script>window.location.assign("register.php");</script>'; // redirects to register.php
-        }
-    }
-
-    if($bool) // checks if bool is true
-    {
-        mysqli_query($con, "INSERT INTO patient (username,password,fname,lname,birth_date,sex,contact_num,email,address_line1,address_line2,address_city,address_state,zip_code,marital_status,weight,height,taking_meds,emergency_name,emergency_relation,emergency_num,registration_date) VALUES
-        ('$username','$password','$fname','$lname','$birth_date','$sex','$contact_num','$email','$address_line1','$address_line2','$address_city','$address_state','$zip_code','$marital_status','$weight','$height','$taking_meds','$emergency_name','$emergency_relation','$emergency_num','$date')"); //Inserts the value to table users
-        Print '<script>alert("Successfully Registered!");</script>'; // Prompts the user
-        Print '<script>window.location.assign("register.php");</script>'; // redirects to register.php
-    }
+    $approval = $_SESSION['doctor_approval'];						
+  
+    mysqli_query($con, "INSERT INTO appointment (appointment_date,appointment_time,details,date_posted,doctor_id,patient_id,approval) VALUES
+    ('$appointment_date','$appointment_time','$details','$date','$doctor_id','$patient_id','pending')"); //Inserts the value to table users
+    Print '<script>alert("Appointment Sent to Doctor!");</script>'; // Prompts the user
+    Print '<script>window.location.assign("book_appointment.php");</script>'; // redirects to register.php
 }
 ?>
 
