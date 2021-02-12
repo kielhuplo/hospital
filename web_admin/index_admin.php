@@ -47,7 +47,6 @@
                             <li class="submenu">
                                 <a href="javascript:;">Appointment</a>
                                 <ul>
-                                    <li><a href="book_appointment.php">Book Appointment</a></li>
                                     <li><a href="view_appointment.php">View Appointment</a></li>
                                 </ul>
                             </li>

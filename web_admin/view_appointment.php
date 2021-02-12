@@ -42,11 +42,6 @@
 	</style>
 	</head>
     <body>
-<<<<<<< HEAD:web_admin/view_appointment.php
-    
-
-    <table align="center" border="1px">
-=======
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
         <div class="container">
@@ -60,12 +55,11 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="index_patient.php">Home</a></li>
+                            <li class="scroll-to-section"><a href="index_admin.php">Home</a></li>
 							<li class="scroll-to-section"><a href="#ourteam">Our Doctors</a></li> 
                             <li class="submenu">
                                 <a href="javascript:;">Appointment</a>
                                 <ul>
-                                    <li><a href="book_appointment.php">Book Appointment</a></li>
                                     <li><a href="view_appointment.php">View Appointment</a></li>
                                 </ul>
                             </li>
@@ -88,13 +82,12 @@
             <div class="row">
 			<div class="col-lg-4 offset-lg-4 text-center">
                     <div class="section-heading">
-                        <h6>MY SCHEDULED APPOINTMENTS</h6>
+                        <h6>SCHEDULED APPOINTMENTS</h6>
 						<h2>Detailed List</h2>
                     </div>
             </div>
 			</div>
     <table align="center" border="1px" width="50%">
->>>>>>> a351451b1085f04b2a13f253934d72485caecddd:web_patient/view_appointment.php
         <tr>
             <th>PATIENT</th>
             <th>DOCTOR</th>
@@ -105,23 +98,10 @@
             <th>UPDATE</th>
             <th>Delete</th>
         </tr>
-<<<<<<< HEAD:web_admin/view_appointment.php
-
-    
-
-
-    <?php
-
-        $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error());
-        $query = mysqli_query($con, "Select doctor.fname as doctor_fname, doctor.lname as doctor_lname, patient.fname, patient.lname, appointment.appointment_date, appointment.appointment_time, appointment.details, appointment.approval FROM patient inner join appointment inner join doctor where patient.patient_id = appointment.patient_id && appointment.doctor_id = doctor.doctor_id ORDER BY appointment_date asc");
-=======
     <?php
         $user_id = $_SESSION['user_id'];
-        $query = mysqli_query($con, "SELECT appointment_date, appointment_time, date_posted, CONCAT(fname, \" \", lname) AS doctor_assigned, approval as status FROM `appointment` INNER JOIN doctor on doctor.doctor_id = appointment.doctor_id WHERE patient_id = '".$user_id."' ORDER BY appointment_date asc");
->>>>>>> a351451b1085f04b2a13f253934d72485caecddd:web_patient/view_appointment.php
-        
-       $sql = "SELECT id, fname, lname FROM doctor";
-
+        $query = mysqli_query($con, "Select doctor.fname as doctor_fname, doctor.lname as doctor_lname, patient.fname, patient.lname, appointment.appointment_date, appointment.appointment_time, appointment.details, appointment.appointment_no, appointment.approval FROM patient inner join appointment inner join doctor where patient.patient_id = appointment.patient_id && appointment.doctor_id = doctor.doctor_id ORDER BY appointment_date asc");
+       
         while($row = mysqli_fetch_array($query))
         {
         Print '<tr>';
@@ -132,58 +112,17 @@
         Print '<td>' . $row['details'];
         Print '<td>' . $row['approval'];
         Print '<td><a href="edit.php">UPDATE</a> </td>';
-        Print '<td><a href="delete.php">DELETE</a> </td>';
+        Print "<td><a class='btn-danger' href='./delete.php?id= ".$row['appointment_no']. "'>DELETE</a>";
         Print '</tr>';
         }
+
     ?>
     </table>
         </div>
     </section>
     <!-- ***** My Schedule Ends ***** -->
 
-    <!-- ***** Our Team Area Starts ***** -->
-    <section class="section" id="ourteam">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 offset-lg-4 text-center">
-                    <div class="section-heading">
-                        <h6>Our Doctors</h6>
-						<h2>Need Details?</h2>
-                    </div>
-                </div>
-                <table border="1px" width="50%">
-                    <tr>
-                        <th>Doctor Name</th>
-                        <th>Specialization</th>
-                        <th>Details</th>
-                    </tr>
-                
-                    <?php
-                        $query = mysqli_query($con, "select * from doctor inner join doctor_schedule on doctor.doctor_id = doctor_schedule.doctor_id order by doctor.doctor_id asc"); // SQL Query
-                    
-                        while($row = mysqli_fetch_array($query)) {
-
-                            $doctor_id_sched = $row['doctor_id']; //get current doctor_id to view their schedule
-
-                            Print "<tr>";
-                            Print "<td>" . $row['fname'] . " " . $row['lname'] . "</td>";
-                            Print "<td>" . $row['spec_detail']. "<br>";
-
-                            $query_sched = mysqli_query($con, "SELECT day, time_from, time_to FROM doctor_schedule WHERE doctor_id = '".$doctor_id_sched."'"); //get schedule of doctor based on $doctor_id_sched
-                            while($row_sched = mysqli_fetch_array($query_sched)) {  //while loop to output schedule table
-                                Print "<i>" . $row_sched['day'] . ": " . $row_sched['time_from'] . " - " . $row_sched['time_to'] . "</i><br/>";
-                            }
-
-                            Print "</td><td>" . "Contact Num: " . $row['contact_num'] .  "<br>Email: " . $row['email'] . "</td>";
-                            Print "</tr>";
-                            Print "";
-                        }
-                    ?>
-				</table>
-			</div>
-        </div>
-    </section>
-    <!-- ***** Our Team Area Ends ***** -->
+    
 	
 	<!-- ***** Footer Start ***** -->
     <footer>
@@ -233,14 +172,36 @@
     <script src="../js/slick.js"></script> 
     <script src="../js/lightbox.js"></script> 
     <script src="../js/isotope.js"></script> 
+    <script>
+	$('.update_app').click(function(){
+		uni_modal("Edit Appintment","set_appointment.php?id="+$(this).attr('data-id'),"mid-large")
+	})
+	$('#new_appointment').click(function(){
+		uni_modal("Add Appintment","set_appointment.php","mid-large")
+	})
+	$('.delete_app').click(function(){
+		_conf("Are you sure to delete this appointment?","delete_app",[$(this).attr('data-id')])
+	})
+	function delete_app($id){
+		start_load()
+		$.ajax({
+			url:'ajax.php?action=delete_appointment',
+			method:'POST',
+			data:{id:$id},
+			success:function(resp){
+				if(resp==1){
+					alert_toast("Data successfully deleted",'success')
+					setTimeout(function(){
+						location.reload()
+					},1500)
+
+				}
+			}
+		})
+	}
+</script>
     
-<<<<<<< HEAD:web_admin/view_appointment.php
-
-
-</body>
-=======
 	<!-- Global Init -->
     <script src="../js/custom.js"></script>
   </body>
->>>>>>> a351451b1085f04b2a13f253934d72485caecddd:web_patient/view_appointment.php
 </html>
