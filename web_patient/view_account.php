@@ -7,9 +7,9 @@
         header("location: ../index.html");
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -55,11 +55,12 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="index_admin.php">Home</a></li>
+                            <li class="scroll-to-section"><a href="index_patient.php">Home</a></li>
 							<li class="scroll-to-section"><a href="#ourteam">Our Doctors</a></li> 
                             <li class="submenu">
                                 <a href="javascript:;">Appointment</a>
                                 <ul>
+                                    <li><a href="book_appointment.php">Book Appointment</a></li>
                                     <li><a href="view_appointment.php">View Appointment</a></li>
                                 </ul>
                             </li>
@@ -82,40 +83,36 @@
             <div class="row">
 			<div class="col-lg-4 offset-lg-4 text-center">
                     <div class="section-heading">
-                        <h6>SCHEDULED APPOINTMENTS</h6>
+                        <h6>MY SCHEDULED APPOINTMENTS</h6>
 						<h2>Detailed List</h2>
                     </div>
             </div>
 			</div>
     <table align="center" border="1px" width="50%">
         <tr>
-            <th>PATIENT</th>
-            <th>DOCTOR</th>
-            <th>APPOINTMENT DATE</th>
-            <th>APPOINTMENT TIME</th>
-            <th>DETAILS</th>
-            <th>STATUS</th>
-            <th>UPDATE</th>
-            <th>Delete</th>
+            <th>NAME</th>
+            <th>BIRTHDAY</th>
+            <th>CONTACT NUMBER</th>
+            <th>EMAIL</th>
+            <th>ADDRESS</th>
+            <th>MARITAL STATUS</th>
         </tr>
     <?php
         $user_id = $_SESSION['user_id'];
-        $query = mysqli_query($con, "Select doctor.fname as doctor_fname, doctor.lname as doctor_lname, patient.fname, patient.lname, appointment.appointment_date, appointment.appointment_time, appointment.details, appointment.appointment_no, appointment.approval FROM patient inner join appointment inner join doctor where patient.patient_id = appointment.patient_id && appointment.doctor_id = doctor.doctor_id ORDER BY appointment_date asc");
-       
+        $query = mysqli_query($con, "SELECT birth_date, contact_num, email, CONCAT(fname, \" \", lname) AS patient_name, CONCAT(address_line1, \" \", address_line2, \" \", address_city, \" \", address_state) AS 'address', marital_status FROM `patient`  WHERE patient_id = $user_id");
+        
+
         while($row = mysqli_fetch_array($query))
         {
         Print '<tr>';
-	    Print '<td>' . $row['fname'] . " " . $row['lname'];
-        Print '<td>' . $row['doctor_fname'] . " " . $row['doctor_lname'];
-        Print '<td>' . $row['appointment_date'];
-        Print '<td>' . $row['appointment_time'];
-        Print '<td>' . $row['details'];
-        Print '<td>' . $row['approval'];
-        Print '<td><a href="edit.php">UPDATE</a> </td>';
-        Print "<td><a class='btn-danger' href='./delete.php?id= ".$row['appointment_no']. "'>DELETE</a>";
+        Print '<td>' . $row['patient_name'];
+        Print '<td>' . $row['birth_date'];
+        Print '<td>' . $row['contact_num'];
+        Print '<td>' . $row['email'];
+        Print '<td>' . $row['address'];
+        Print '<td>' . $row['marital_status'];
         Print '</tr>';
         }
-
     ?>
     </table>
         </div>
@@ -172,34 +169,6 @@
     <script src="../js/slick.js"></script> 
     <script src="../js/lightbox.js"></script> 
     <script src="../js/isotope.js"></script> 
-    <script>
-	$('.update_app').click(function(){
-		uni_modal("Edit Appintment","set_appointment.php?id="+$(this).attr('data-id'),"mid-large")
-	})
-	$('#new_appointment').click(function(){
-		uni_modal("Add Appintment","set_appointment.php","mid-large")
-	})
-	$('.delete_app').click(function(){
-		_conf("Are you sure to delete this appointment?","delete_app",[$(this).attr('data-id')])
-	})
-	function delete_app($id){
-		start_load()
-		$.ajax({
-			url:'ajax.php?action=delete_appointment',
-			method:'POST',
-			data:{id:$id},
-			success:function(resp){
-				if(resp==1){
-					alert_toast("Data successfully deleted",'success')
-					setTimeout(function(){
-						location.reload()
-					},1500)
-
-				}
-			}
-		})
-	}
-</script>
     
 	<!-- Global Init -->
     <script src="../js/custom.js"></script>
