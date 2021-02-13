@@ -1,0 +1,74 @@
+	table {
+		margin: auto;
+		width: 80%;
+		background-color: white;
+	}
+	
+	th {
+		text-align: center;
+		padding: 20px;
+	}
+	
+	td {
+		padding: 20px;
+	}
+
+	.updatebutton {
+		padding-right: 1.5rem;
+		padding-left: 1.5rem;
+		border-radius: 40px;
+		border:2px solid black;
+		font-size: 1.125rem;
+		color: black;
+		text-align: center;
+		text-decoration: none;
+		font-size: 16px;
+		cursor: pointer;
+		display:block;
+	}
+
+	.updatebutton:hover {
+		border:2px solid #4dc0d7;
+		color: #4dc0d7;
+		background-color: #fde3b7;
+	}
+	
+	.logbutton {
+		padding-right: 1.5rem;
+		padding-left: 1.5rem;
+		border-radius: 40px;
+		border:2px solid black;
+		font-size: 1.125rem;
+		color: black;
+		text-align: center;
+		text-decoration: none;
+		font-size: 16px;
+		cursor: pointer;
+		display:block;
+	}
+
+	.logbutton:hover {
+		border:2px solid #4dc0d7;
+		color: #4dc0d7;
+	}
+	
+	.acctbutton {
+		padding: 0.5rem 1.5rem;
+		border-radius: 40px;
+		border:2px solid #4dc0d7;
+		font-size: 1.125rem;
+		color: white;
+		text-align: center;
+		text-decoration: none;
+		font-size: 16px;
+		cursor: pointer;
+		display:block;
+		background-color:#4dc0d7;
+	}
+
+
+	.acctbutton:hover {
+		border:2px solid #efb054;
+		background-color: white;
+		color: #efb054;
+	}

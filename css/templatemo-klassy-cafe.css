@@ -1192,7 +1192,7 @@ contactus
 
 #contactus {
   padding: 120px 0px;
-  background-image: url(../images/contactusbg.jpg);
+  background-image: url(../images/14.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1460,8 +1460,8 @@ footer {
 
 footer .left-text-content p {
   margin-top: 5px;
-  color: #4dc0d7;
-  font-size: 14px;
+  color: #94d7d2;
+  font-size: 9px;
   text-align: right;
 }
 

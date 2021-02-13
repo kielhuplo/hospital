@@ -25,24 +25,23 @@
     <link rel="stylesheet" href="../css/owl-carousel.css">
     <link rel="stylesheet" href="../css/lightbox.css">
     <link rel="shortcut icon" type="image/png" href="../images/transparenticon.png">
+	<link rel="stylesheet" href="../css/tempcss.css">
     </head>
     <body>
-    <!-- ***** Header Area Start ***** -->
+    <!-- Header -->
     <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
+                        <!--  Logo  -->
                         <a href="index_admin.html" class="logo">
                             <img src="../images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
+                        <!--  Menu Start  -->
+						<ul class="nav">
 							<li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#about">About Us</a></li>
-							<li class="scroll-to-section"><a href="#ourteam">Our Team</a></li> 
+                            <li class="scroll-to-section"><a href="#about">Account</a></li>
                             <li class="scroll-to-section"><a href="#contactus">Contact Us</a></li> 
                             <li class="submenu">
                                 <a href="javascript:;">Appointment</a>
@@ -51,21 +50,18 @@
                                     <li><a href="view_appointment.php">View Appointment</a></li>
                                 </ul>
                             </li>
-                            <li><a href="view_account.php">View Account</a></li>   
                             <li><a href="../logout.php">Logout</a></li>   
-                        </ul>        
+                        </ul>              
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
-                        <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
             </div>
         </div>
     </header>
-    <!-- ***** Header Area End ***** -->
 
-    <!-- ***** Main Banner Area Start ***** -->
+    <!-- Main -->
     <div id="top">
         <div class="container-fluid">
             <div class="row">
@@ -83,36 +79,32 @@
                 <div class="col-lg-8">
                     <div class="main-banner header-text">
                         <div class="Modern-Slider">
-                          <!-- Item -->
+                          <!-- First Pic -->
                           <div class="item">
                             <div class="img-fill">
-                                <img src="../images/doc1.jpg" alt="">
+                                <img src="../images/1.png" alt="">
                             </div>
                           </div>
-                          <!-- // Item -->
-                          <!-- Item -->
+                          <!-- Second Pic -->
                           <div class="item">
                             <div class="img-fill">
-                                <img src="https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2015/01/12/102329974-doctor-patient.1910x1000.jpg" alt="">
+                                <img src="../images/2.png" alt="">
                             </div>
                           </div>
-                          <!-- // Item -->
-                          <!-- Item -->
+                          <!-- Third Pic -->
                           <div class="item">
                             <div class="img-fill">
-                                <img src="https://th.bing.com/th/id/Re4ab6654af6cf92e450cf586451ed78c?rik=2%2f3YgvjYrXVQ0w&riu=http%3a%2f%2fwww.lumahealth.io%2fwp-content%2fuploads%2f2018%2f05%2fTransparency-in-the-Doctor-Patient-Relationship-1.jpg&ehk=gu%2bLtp6gz5Rqts9XNrRoaYlJZgcFGDhE5YHDdalycqg%3d&risl=&pid=ImgRaw" alt="">
+                                <img src="../images/3.png" alt="">
                             </div>
                           </div>
-                          <!-- // Item -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ***** Main Banner Area End ***** -->
 
-    <!-- ***** About Area Starts ***** -->
+    <!-- About -->
     <section class="section" id="about">
         <div class="container">
             <div class="row">
@@ -130,15 +122,15 @@
 						<br/><br/>By making appointment digitally or available on the internet, scheduling and meeting your Doctor in an orderly fashion could help many patients during this time of pandemic. 
 						<br/><br/>Contactless appointment scheduling could also be a way to help reduce transmission  of the Covid-19 Virus  and avoid a crowd of patient eaiting in line just to get an appointment. 
 						<br/><br/>By the use of PatientHelp not only can patients schedule for an appointment but also they could choose the Doctor who is available at the moment along with their specialization.</p>
-                        <div class="row">
-                            <div class="col-4">
-                                <img src="https://www.usnews.com/dims4/USNEWS/e0809c9/2147483647/crop/2000x1313%2B0%2B0/resize/640x420/quality/85/?url=http:%2F%2Fmedia.beam.usnews.com%2F0d%2Fc3%2F396b0ea644d98747667d7b993ccd%2F170726-doctors-stock.jpg" alt="">
+                        <div class="section-heading">
+						<h2>Manage Account</h2>
+						</div>
+						<div class="row">
+                            <div class="col-6">
+                                <a href="view_account.php"><div class="acctbutton"> View Account </div></a>
                             </div>
-                            <div class="col-4">
-                                <img src="https://progressivesforimmigrationreform.org/wp-content/uploads/2020/04/Doctors-scaled.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img src="https://cdn.halemind.com/assets/static/hiw_doctors-1730ad4e76d17e37e63f882bf1f96bac18955fb873740d617b631a8da0ef88f2.png" alt="">
+                            <div class="col-6">
+                                <a href="#"><div class="acctbutton"> Edit Account </div></a>
                             </div>
                         </div>
                     </div>
@@ -146,7 +138,7 @@
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="right-content">
                         <div class="thumb">
-						<a href="schedule_appointment.php">
+						<a href="book_appointment.php">
 							<img src="../images/schedapp.png" alt="">
 						</a>
 						<a href="book_appointment.php">
@@ -158,98 +150,11 @@
             </div>
         </div>
     </section>
-    <!-- ***** About Area Ends ***** -->
+	<div class="container">
+	</br></br></br>
+	</div>
 
-
-    <!-- ***** Our Team Area Starts ***** -->
-    <section class="section" id="ourteam">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 offset-lg-4 text-center">
-                    <div class="section-heading">
-                        <h6>Our Team</h6>
-                        <h2>We offer the best service for you</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 offset-lg-2">
-                    <div class="team-item">
-                        <div class="thumb">
-                            <div class="overlay"></div>
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                            <img src="../images/person1.png" alt="Person #1">
-                        </div>
-                        <div class="down-content">
-                            <h4>Adrian Alfonso</h4>
-                            <span>OL161</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="team-item">
-                        <div class="thumb">
-                            <div class="overlay"></div>
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                            <img src="../images/person2.png" alt="Person #2">
-                        </div>
-                        <div class="down-content">
-                            <h4>Kiel Huplo</h4>
-                            <span>OL161</span>
-                        </div>
-                    </div>
-                </div>
-			</div>
-			
-			<div class="row">
-                <div class="col-lg-4 offset-lg-2">
-                    <div class="team-item">
-                        <div class="thumb">
-                            <div class="overlay"></div>
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                            <img src="../images/person3.png" alt="Person #3">
-                        </div>
-                        <div class="down-content">
-                            <h4>Shawn Santos</h4>
-                            <span>BM4</span>
-                        </div>
-                    </div>
-                </div>
-				<div class="col-lg-4">
-                    <div class="team-item">
-                        <div class="thumb">
-                            <div class="overlay"></div>
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                            <img src="../images/person4.png" alt="Person #4">
-                        </div>
-                        <div class="down-content">
-                            <h4>Stephany Zamora</h4>
-                            <span>BM4</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Our Team Area Ends ***** -->
-
-    <!-- ***** Contact Us Area Starts ***** -->
+    <!-- Contact Us -->
     <section class="section" id="contactus">
         <div class="container">
             <div class="row">
@@ -264,14 +169,14 @@
                             <div class="col-lg-6">
                                 <div class="phone">
                                     <i class="fa fa-phone"></i>
-                                    <h4>Phone Numbers</h4>
+                                    <h4>Phone Number</h4>
                                     <span><a href="#">080-090-0990</a><br></span>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="message">
                                     <i class="fa fa-envelope"></i>
-                                    <h4>Emails</h4>
+                                    <h4>Email</h4>
                                     <span><a href="#">patienthelp@company.com</a><br></span>
                                 </div>
                             </div>
@@ -327,20 +232,13 @@
             </div>
         </div>
     </section>
-    <!-- ***** Contact Us Area Ends ***** -->
-    
-    <!-- ***** Footer Start ***** -->
+	
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-xs-12">
                     <div class="right-text-content">
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -351,7 +249,6 @@
                 <div class="col-lg-4 col-xs-12">
                     <div class="left-text-content">
                         <p>© Copyright Klassy Cafe Co.
-                        
                         <br>Design: TemplateMo</p>
                     </div>
                 </div>

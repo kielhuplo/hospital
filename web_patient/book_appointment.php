@@ -30,35 +30,20 @@
     <link rel="stylesheet" href="../css/owl-carousel.css">
     <link rel="stylesheet" href="../css/lightbox.css">
     <link rel="shortcut icon" type="image/png" href="../images/transparenticon.png">
-    <style>
-	table {
-	  margin: auto;
-	  width: 70%;
-	  
-	}
-	
-	th {
-	  text-align: center;
-	}
-	
-	td {
-	  padding: 20px;
-	}
-	</style>
+	<link rel="stylesheet" href="../css/tempcss.css">
 	</head>
     <body>
-    <!-- ***** Header Area Start ***** -->
+    <!-- Header -->
     <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
+                        <!--  Logo  -->
                         <a href="index_patient.php" class="logo">
                             <img src="../images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
+                        <!--  Menu  -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="index_patient.php">Home</a></li>
 							<li class="scroll-to-section"><a href="#ourteam">Our Doctors</a></li> 
@@ -74,15 +59,13 @@
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
-                        <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
             </div>
         </div>
     </header>
-    <!-- ***** Header Area End ***** -->
 	
-    <!-- ***** About Area Starts ***** -->
+    <!-- About -->
     <section class="section" id="about">
         <div class="container">
             <div class="row">
@@ -100,7 +83,6 @@
                             <div class="col-lg-6">
                               <fieldset>
 									<br/>Doctor:
-
 									<select name="doctor_id">
                                         <?php
                                             $doctor_query = mysqli_query($con, "SELECT doctor_id, CONCAT(fname, \" \", lname) AS doctor_assigned FROM doctor ORDER BY doctor_id ASC"); // SQL Query
@@ -157,9 +139,8 @@
             </div>
         </div>
     </section>
-    <!-- ***** About Area Ends ***** -->
 
-    <!-- ***** Our Team Area Starts ***** -->
+    <!-- Our Doctors -->
     <section class="section" id="ourteam">
         <div class="container">
             <div class="row">
@@ -201,20 +182,13 @@
 			</div>
         </div>
     </section>
-    <!-- ***** Our Team Area Ends ***** -->
-    
-    <!-- ***** Footer Start ***** -->
+
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-xs-12">
                     <div class="right-text-content">
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -225,21 +199,17 @@
                 <div class="col-lg-4 col-xs-12">
                     <div class="left-text-content">
                         <p>© Copyright Klassy Cafe Co.
-                        
                         <br>Design: TemplateMo</p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
     <!-- jQuery -->
     <script src="../js/jquery-2.1.0.min.js"></script>
-
     <!-- Bootstrap -->
     <script src="../js/popper.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-
     <!-- Plugins -->
     <script src="../js/owl-carousel.js"></script>
     <script src="../js/accordions.js"></script>
@@ -251,7 +221,6 @@
     <script src="../js/slick.js"></script> 
     <script src="../js/lightbox.js"></script> 
     <script src="../js/isotope.js"></script> 
-    
     <!-- Global Init -->
     <script src="../js/custom.js"></script>
   </body>
