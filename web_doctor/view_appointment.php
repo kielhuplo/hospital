@@ -25,100 +25,89 @@
     <link rel="stylesheet" href="../css/owl-carousel.css">
     <link rel="stylesheet" href="../css/lightbox.css">
     <link rel="shortcut icon" type="image/png" href="../images/transparenticon.png">
-    <style>
-	table {
-	  margin: auto;
-	  width: 70%;
-	  background-color: white;
-	}
-	
-	th {
-	  text-align: center;
-	}
-	
-	td {
-	  padding: 20px;
-	}
-	</style>
+	<link rel="stylesheet" href="../css/tempcss.css">
 	</head>
     <body>
-    <!-- ***** Header Area Start ***** -->
+	<!-- Header -->
     <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="index_patient.php" class="logo">
+                        <!--  Logo  -->
+                        <a href="index_admin.html" class="logo">
                             <img src="../images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
+                        <!--  Menu  -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="index_doctor.php">Home</a></li>
-							<li class="scroll-to-section"><a href="#ourteam">Our Doctors</a></li> 
+                            <li><a href="index_doctor.php">Home</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">Appointment</a>
                                 <ul>
-                                    <li><a href="view_appointment.php">View Appointment</a></li>
+                                    <li><a href="view_appointment.php">Manage Appointments</a></li>
                                 </ul>
-                            </li>
-							<li><a href="../logout.php">Logout</a></li> 
+                            </li> 
+                            <li><a href="../logout.php">Logout</a></li>
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
-                        <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
             </div>
         </div>
     </header>
-    <!-- ***** Header Area End ***** -->
-    <br><br><br><br><br><br><br><br><br><br><br><br>
-    <table align="center" border="1px">
-        <tr>
-            <th>PATIENT</th>
-            <th>APPOINTMENT DATE</th>
-            <th>APPOINTMENT TIME</th>
-            <th>DATE POSTED</th>
-            <th>STATUS</th>
-            <th>UPDATE</th>
-        </tr>
 
+    <!--  My Schedule -->
+    <section class="section" id="menu">
+        <div class="container">
+            <div class="row">
+				<div class="col-lg-12 text-center">
+                    <div class="headBnnr">
+						<br><br><br>
+                        <h6>MY SCHEDULED APPOINTMENTS</h6>
+						<h2><b>MANAGE APPOINTMENTS</b></h2>
+                    </div>
+				</div>
+			</div>
+		<div class="respoTable">
     <?php
-
         $user_id = $_SESSION['user_id'];
         $query = mysqli_query($con, "SELECT appointment_no,appointment_date, appointment_time, date_posted, CONCAT(fname, \" \", lname) AS patient_assigned, approval as status FROM `appointment` INNER JOIN patient on patient.patient_id = appointment.patient_id WHERE doctor_id = '".$user_id."' ORDER BY appointment_date asc");
         
+		Print '<table align="center" class="fixed_header mngTable">
+			<thead><tr>
+				<th>PATIENT</th>
+				<th>APPOINTMENT DATE</th>
+				<th>APPOINTMENT TIME</th>
+				<th>DATE POSTED</th>
+				<th>STATUS</th>
+				<th>UPDATE</th>
+			</tr></thead>';
+					
         while($row = mysqli_fetch_array($query))
         {
             Print '<tr>';
-            Print '<td>' . $row['patient_assigned'];
+            Print '<td>' . strtoupper($row['patient_assigned']);
             Print '<td>' . $row['appointment_date'];
             Print '<td>' . $row['appointment_time'];
             Print '<td>' . $row['date_posted'];
             Print '<td>' . $row['status']; 
-            Print "<td><a class='btn-primary' href='../approval.php?id= ".$row['appointment_no']. "'>APPROVE </a><a> OR </a><a class='btn-danger' href='../cancel.php?id= ".$row['appointment_no']. "'> DECLINE</a>";
+            Print "<td><a class='btn-primary' href='./approval.php?id= ".$row['appointment_no']. "'>APPROVE</a><a> OR </a><a class='btn-danger' href='./cancel.php?id= ".$row['appointment_no']. "'> DECLINE</a>";
             Print '</tr>';
         }
     ?>
-    </table>
-    
+		</table>
+		</div>
+		</div>
+    </section>
  
-    
-<!-- ***** Footer Start ***** -->
-<footer>
+	<!-- Footer -->
+    <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-xs-12">
                     <div class="right-text-content">
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -129,21 +118,17 @@
                 <div class="col-lg-4 col-xs-12">
                     <div class="left-text-content">
                         <p>© Copyright Klassy Cafe Co.
-                        
                         <br>Design: TemplateMo</p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
     <!-- jQuery -->
     <script src="../js/jquery-2.1.0.min.js"></script>
-
     <!-- Bootstrap -->
     <script src="../js/popper.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-
     <!-- Plugins -->
     <script src="../js/owl-carousel.js"></script>
     <script src="../js/accordions.js"></script>
@@ -182,12 +167,7 @@
 			}
 		})
 	}
-    
-
-
-	
-	
-    
+    </script>
 	<!-- Global Init -->
     <script src="../js/custom.js"></script>
   </body>
