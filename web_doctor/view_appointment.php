@@ -55,7 +55,7 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="index_admin.php">Home</a></li>
+                            <li class="scroll-to-section"><a href="index_doctor.php">Home</a></li>
 							<li class="scroll-to-section"><a href="#ourteam">Our Doctors</a></li> 
                             <li class="submenu">
                                 <a href="javascript:;">Appointment</a>
