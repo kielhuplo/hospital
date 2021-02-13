@@ -30,20 +30,7 @@
     <link rel="stylesheet" href="../css/owl-carousel.css">
     <link rel="stylesheet" href="../css/lightbox.css">
     <link rel="shortcut icon" type="image/png" href="../images/transparenticon.png">
-    <style>
-	table {
-	  border: 1px solid black;
-	}
-	
-	th {
-	  text-align: center;
-	  padding: 10px;
-	}
-	
-	td {
-	  padding: 10px;
-	}
-	</style>
+	<link rel="stylesheet" href="../css/tempcss.css">
 	</head>
     <body>
     <!-- Header -->
@@ -88,7 +75,7 @@
 						<img src="../images/white-logo.png" alt="">
                             <h6>Scheduling Website for Healthcare Facilities</h6>
                             <div class="main-white-button scroll-to-section">
-                                <a href="view_appointments.php">Manage Appointments</a>
+                                <a href="view_appointment.php">Manage Appointments</a>
                             </div>
                         </div>
                     </div>
@@ -127,30 +114,40 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="left-text-content">
+					<img src="../images/top.png"><br><br>
                         <div class="section-heading">
-                            <h6>My Account</h6>
+							<h6>My Account</h6>
                             <h2>
 								<?php
-								echo "WELCOME, " . strtoupper($username);
+								$user_id = $_SESSION['user_id'];
+								$query = mysqli_query($con, "SELECT contact_num, email, lname, spec_detail, CONCAT(fname, \" \", lname) AS doctor_name, CONCAT(address_line1, \" \", address_line2, \" \", address_city, \" \", address_state) AS 'address' FROM `doctor` WHERE doctor_id = $user_id");
+								while($row = mysqli_fetch_array($query))
+								{
+								Print '<i>WELCOME, </i>DR. ' . strtoupper($row['lname']);
 								?>
 							</h2>
                         </div>
-                        <p>We at PatientHelp believes that Digitalization is one of the key of Innovation. 
-						<br/><br/>By making appointment digitally or available on the internet, scheduling and meeting your Doctor in an orderly fashion could help many patients during this time of pandemic. 
-						<br/><br/>Contactless appointment scheduling could also be a way to help reduce transmission  of the Covid-19 Virus  and avoid a crowd of patient eaiting in line just to get an appointment. 
-						<br/><br/>By the use of PatientHelp not only can patients schedule for an appointment but also they could choose the Doctor who is available at the moment along with their specialization.
-                        <br><br><br></p>
-                        <div class="row">
-                            <div class="col-4">
-                                <img src="images/7.png" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img src="images/6.png" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img src="images/8.png" alt="">
-                            </div>
-                        </div>
+                        <p>
+						<table class="regDetails">
+						<th colspan="2"><h5><b>REGISTERED DETAILS</b></h5></th>
+							<?php
+								Print '<tr>';
+								Print '<td>Name: </td><td>' . strtoupper($row['doctor_name']) . '</td></tr><tr>';
+								Print '<td>Specialization: </td><td>' . strtoupper($row['spec_detail']) . '</td></tr><tr>';
+								Print '<td>Contact Number: </td><td>' . $row['contact_num'] . '</td></tr><tr>';
+								Print '<td>Email: </td><td>' . $row['email'] . '</td><tr>';
+								Print '<td>Address: </td><td>' . strtoupper($row['address']) . '</td></tr>';
+								}
+								
+								$query_sched = mysqli_query($con, "SELECT day, time_from, time_to FROM doctor_schedule WHERE doctor_id = $user_id");
+								while($row_sched = mysqli_fetch_array($query_sched)) {
+									Print "<td>Schedule: </td><td>" . strtoupper($row_sched['day']) . " <i>" . $row_sched['time_from'] . " - " . $row_sched['time_to'] . "</i></td></tr>";
+								}
+							
+							?>
+							</table>
+						</p>
+                        <img src="../images/bot.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-xs-12">
@@ -160,37 +157,41 @@
 							<h6>MY APPOINTMENTS</h6>
 							<h2>Detailed List</h2>
 							</div>
-							<table>
-									<tr>
-										<th>PATIENT</th>
-										<th>DATE</th>
-										<th>TIME</th>
-										<th>STATUS</th>
-									</tr>
-
 								<?php
-
+									
 									$con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error());
 									$user_id = $_SESSION['user_id'];
 									$query = mysqli_query($con, "SELECT appointment_date, appointment_time, CONCAT(fname, \" \", lname) AS patient_assigned, approval as status FROM `appointment` INNER JOIN patient on patient.patient_id = appointment.patient_id WHERE doctor_id = '".$user_id."' ORDER BY appointment_date asc");
 									
+									Print '<table class="fixed_header listTable" id="myTable">
+											<thead>
+											<tr>
+												<th>PATIENT</th>
+												<th>DATE</th>
+												<th>TIME</th>
+												<th>STATUS</th>
+											</tr></thead>';
+
 									while($row = mysqli_fetch_array($query))
 									{
 									Print '<tr>';
 									Print '<td>' . strtoupper($row['patient_assigned']);
-									Print '<td>' . $row['appointment_date'];
-									Print '<td>' . $row['appointment_time'];
-									Print '<td>' . $row['status'];
+									Print '</td><td>' . $row['appointment_date'];
+									Print '</td><td>' . $row['appointment_time'];
+									Print '</td><td>' . $row['status'];
 									Print '</tr>';
 									}
+									Print '</table>';
 								?>
-							</table>							
 						</div>
+						<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for patient" title="Type in a name">
                     </div>
                 </div>
             </div>
         </div>
     </section>
+	<div class="container">
+	<br><br><br></div>
 
     <!-- Contact Us -->
     <section class="section" id="contactus">
@@ -326,5 +327,25 @@
             });
         });
     </script>
+	<script>
+	function myFunction() {
+	  var input, filter, table, tr, td, i, txtValue;
+	  input = document.getElementById("myInput");
+	  filter = input.value.toUpperCase();
+	  table = document.getElementById("myTable");
+	  tr = table.getElementsByTagName("tr");
+	  for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName("td")[0];
+		if (td) {
+		  txtValue = td.textContent || td.innerText;
+		  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+			tr[i].style.display = "";
+		  } else {
+			tr[i].style.display = "none";
+		  }
+		}       
+	  }
+	}
+	</script>
   </body>
 </html>

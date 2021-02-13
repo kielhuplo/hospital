@@ -141,7 +141,7 @@
 						<a href="book_appointment.php">
 							<img src="../images/schedapp.png" alt="">
 						</a>
-						<a href="book_appointment.php">
+						<a href="view_appointment.php">
 							<img src="../images/viewapp.png" alt="">
                         </a>
 						</div>

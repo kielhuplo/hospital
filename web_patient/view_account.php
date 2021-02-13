@@ -69,7 +69,7 @@
 						<h2>Account Details</h2>
                     </div>
             </div>
-			<table>
+			<table class="viewTable">
 			<?php
 				$user_id = $_SESSION['user_id'];
 				$query = mysqli_query($con, "SELECT birth_date, contact_num, email, CONCAT(fname, \" \", lname) AS patient_name, CONCAT(address_line1, \" \", address_line2, \" \", address_city, \" \", address_state) AS 'address', marital_status, weight, height, emergency_name, emergency_relation, emergency_num FROM `patient`  WHERE patient_id = $user_id");

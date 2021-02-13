@@ -151,7 +151,7 @@
 						<h2>Need Details?</h2>
                     </div>
                 </div>
-                <table border="1px" width="50%">
+                <table border="1px" width="50%" class="viewTable">
                     <tr>
                         <th>Doctor Name</th>
                         <th>Specialization</th>
