@@ -12,10 +12,8 @@
     die(mysqli_error()); //Connect to server
 
     if (isset($_SESSION['username'])) {
-        if ($_SESSION['login_as'] == "admin") {
-        } 
-        
-        else if ($_SESSION['login_as'] == "patient") {
+                
+        if ($_SESSION['login_as'] == "patient") {
             mysqli_query($con, "INSERT INTO patient_log (login_date_time,logout_date_time,patient_id) VALUES
                 ('$login_date_time','$logout_date_time','$user_id')");
         } 

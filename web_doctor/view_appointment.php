@@ -99,7 +99,7 @@
             Print '<td>' . $row['appointment_time'];
             Print '<td>' . $row['date_posted'];
             Print '<td>' . $row['status']; 
-            Print "<td><a class='btn-primary' href='./approval.php?id= ".$row['appointment_no']. "'>APPROVE </a><a> OR </a><a class='btn-danger' href='./cancel.php?id= ".$row['appointment_no']. "'> DECLINE</a>";
+            Print "<td><a class='btn-primary' href='../approval.php?id= ".$row['appointment_no']. "'>APPROVE </a><a> OR </a><a class='btn-danger' href='../cancel.php?id= ".$row['appointment_no']. "'> DECLINE</a>";
             Print '</tr>';
         }
     ?>

@@ -111,7 +111,7 @@
         Print '<td>' . $row['appointment_time'];
         Print '<td>' . $row['details'];
         Print '<td>' . $row['approval'];
-        Print '<td><a href="edit.php">UPDATE</a> </td>';
+        Print "<td><a class='btn-primary' href='../approval.php?id= ".$row['appointment_no']. "'>APPROVE </a><a> OR </a><a class='btn-danger' href='../cancel.php?id= ".$row['appointment_no']. "'> DECLINE</a>";
         Print "<td><a class='btn-danger' href='./delete.php?id= ".$row['appointment_no']. "'>DELETE</a>";
         Print '</tr>';
         }
