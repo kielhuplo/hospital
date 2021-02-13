@@ -21,5 +21,6 @@ $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_err
 	    	echo "Something went wrong";
     	}
 
-
+	
 ?>
+

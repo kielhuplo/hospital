@@ -135,11 +135,12 @@
 							$appointment_time = ($_POST['appointment_time']);
 							$details = ($_POST['details']);
 							$patient_id = $_SESSION['user_id'];
+                    
 							
 							$date = strftime("%Y-%m-%d");							
 						  
                             mysqli_query($con, "INSERT INTO appointment (appointment_date,appointment_time,details,date_posted,doctor_id,patient_id,approval) VALUES
-                            ('$appointment_date','$appointment_time','$details','$date','$doctor_id','$patient_id','pending')"); //Inserts the value to table users
+                            ('$appointment_date','$appointment_time','$details','$date','$doctor_id','$patient_id','PENDING')"); //Inserts the value to table users
                             Print '<script>alert("Appointment Sent to Doctor!");</script>'; // Prompts the user
                             Print '<script>window.location.assign("book_appointment.php");</script>'; // redirects to register.php
 						}
