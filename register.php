@@ -57,18 +57,17 @@
 	}
 	</style>
     <body>
-    <!-- ***** Header Area Start ***** -->
+    <!-- Header -->
     <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
+                        <!--  Logo  -->
                         <a href="index.html" class="logo">
                             <img src="images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
+                        <!--  Menu  -->
                         <ul class="nav">
 							<li class="scroll-to-section"><a href="index.html">Home</a></li> 
                             <li class="scroll-to-section"><a href="#top" class="active">Register</a></li>
@@ -77,14 +76,12 @@
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
-                        <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
             </div>
         </div>
     </header>
-    <!-- ***** Header Area End ***** -->
-    <!-- ***** Main Banner Area Start ***** -->
+    <!--  Main -->
     <div id="top">
     <section class="section" id="contactus">
         <div class="container">
@@ -106,7 +103,7 @@
                                 <h4>Registration Form</h4>
                             </div>
                             <div class="col-lg-12">
-							  <!-- One "tab" for each step in the form: -->
+							  <!-- Steps -->
 							  <div class="tab">
 								Enter Username:
 									<input type="text" name="username" required="required">
@@ -179,7 +176,7 @@
 								</div>
 								</fieldset>
 							  </div>
-							  <!-- Circles which indicates the steps of the form: -->
+							  <!-- Circle Indicator -->
 							  <div style="text-align:center;margin-top:40px;">
 								<span class="step"></span>
 								<span class="step"></span>
@@ -207,12 +204,6 @@
             <div class="row">
                 <div class="col-lg-4 col-xs-12">
                     <div class="right-text-content">
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -229,14 +220,11 @@
             </div>
         </div>
     </footer>
-
     <!-- jQuery -->
     <script src="js/jquery-2.1.0.min.js"></script>
-
     <!-- Bootstrap -->
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
     <!-- Plugins -->
     <script src="js/owl-carousel.js"></script>
     <script src="js/accordions.js"></script>
@@ -248,10 +236,8 @@
     <script src="js/slick.js"></script> 
     <script src="js/lightbox.js"></script> 
     <script src="js/isotope.js"></script> 
-    
     <!-- Global Init -->
     <script src="js/custom.js"></script>
-	
 	<script>
 	var currentTab = 0; // Current tab is set to be the first tab (0)
 	showTab(currentTab); // Display the current tab

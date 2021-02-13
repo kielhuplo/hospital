@@ -25,35 +25,20 @@
     <link rel="stylesheet" href="../css/owl-carousel.css">
     <link rel="stylesheet" href="../css/lightbox.css">
     <link rel="shortcut icon" type="image/png" href="../images/transparenticon.png">
-    <style>
-	table {
-	  margin: auto;
-	  width: 70%;
-	  background-color: white;
-	}
-	
-	th {
-	  text-align: center;
-	}
-	
-	td {
-	  padding: 20px;
-	}
-	</style>
+	<link rel="stylesheet" href="../css/tempcss.css">
 	</head>
     <body>
-    <!-- ***** Header Area Start ***** -->
+    <!-- Header -->
     <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
+                        <!--  Logo Start  -->
                         <a href="index_patient.php" class="logo">
                             <img src="../images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
+                        <!--  Menu Start  -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="index_patient.php">Home</a></li>
 							<li class="scroll-to-section"><a href="#ourteam">Our Doctors</a></li> 
@@ -69,15 +54,13 @@
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
-                        <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
             </div>
         </div>
     </header>
-    <!-- ***** Header Area End ***** -->
 
-    <!-- ***** My Schedule Starts ***** -->
+    <!--  My Schedule -->
     <section class="section" id="menu">
         <div class="container">
             <div class="row">
@@ -96,28 +79,27 @@
             <th>DOCTOR ASSIGNED</th>
             <th>STATUS</th>
         </tr>
-    <?php
-        $user_id = $_SESSION['user_id'];
-        $query = mysqli_query($con, "SELECT appointment_date, appointment_time, date_posted, CONCAT(fname, \" \", lname) AS doctor_assigned, approval as status FROM `appointment` INNER JOIN doctor on doctor.doctor_id = appointment.doctor_id WHERE patient_id = '".$user_id."' ORDER BY appointment_date asc");
-        
+		<?php
+			$user_id = $_SESSION['user_id'];
+			$query = mysqli_query($con, "SELECT appointment_date, appointment_time, date_posted, CONCAT(fname, \" \", lname) AS doctor_assigned, approval as status FROM `appointment` INNER JOIN doctor on doctor.doctor_id = appointment.doctor_id WHERE patient_id = '".$user_id."' ORDER BY appointment_date asc");
+			
 
-        while($row = mysqli_fetch_array($query))
-        {
-        Print '<tr>';
-        Print '<td>' . $row['appointment_date'];
-        Print '<td>' . $row['appointment_time'];
-        Print '<td>' . $row['date_posted'];
-        Print '<td>' . $row['doctor_assigned'];
-        Print '<td>' . $row['status'];
-        Print '</tr>';
-        }
-    ?>
+			while($row = mysqli_fetch_array($query))
+			{
+			Print '<tr>';
+			Print '<td>' . $row['appointment_date'];
+			Print '<td>' . $row['appointment_time'];
+			Print '<td>' . $row['date_posted'];
+			Print '<td>' . $row['doctor_assigned'];
+			Print '<td>' . $row['status'];
+			Print '</tr>';
+			}
+		?>
     </table>
         </div>
     </section>
-    <!-- ***** My Schedule Ends ***** -->
 
-    <!-- ***** Our Team Area Starts ***** -->
+    <!-- Our Doctors -->
     <section class="section" id="ourteam">
         <div class="container">
             <div class="row">
@@ -133,7 +115,6 @@
                         <th>Specialization</th>
                         <th>Details</th>
                     </tr>
-                
                     <?php
                         $query = mysqli_query($con, "select * from doctor inner join doctor_schedule on doctor.doctor_id = doctor_schedule.doctor_id order by doctor.doctor_id asc"); // SQL Query
                     
@@ -159,20 +140,13 @@
 			</div>
         </div>
     </section>
-    <!-- ***** Our Team Area Ends ***** -->
 	
-	<!-- ***** Footer Start ***** -->
+	<!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-xs-12">
                     <div class="right-text-content">
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -183,21 +157,17 @@
                 <div class="col-lg-4 col-xs-12">
                     <div class="left-text-content">
                         <p>© Copyright Klassy Cafe Co.
-                        
                         <br>Design: TemplateMo</p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
     <!-- jQuery -->
     <script src="../js/jquery-2.1.0.min.js"></script>
-
     <!-- Bootstrap -->
     <script src="../js/popper.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-
     <!-- Plugins -->
     <script src="../js/owl-carousel.js"></script>
     <script src="../js/accordions.js"></script>
@@ -209,7 +179,6 @@
     <script src="../js/slick.js"></script> 
     <script src="../js/lightbox.js"></script> 
     <script src="../js/isotope.js"></script> 
-    
 	<!-- Global Init -->
     <script src="../js/custom.js"></script>
   </body>
