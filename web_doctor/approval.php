@@ -3,7 +3,7 @@ session_start(); //starts the session
 if($_SESSION['user_id']){ //checks if user is logged in
 }
 else{
-header("location:index_admin.html"); // redirects if user is not logged in
+header("location:index.html"); // redirects if user is not logged in
 }
 
     $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error()); //Connect to server
