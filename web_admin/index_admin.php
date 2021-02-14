@@ -40,9 +40,7 @@
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
 							<li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#about">About Us</a></li>
 							<li class="scroll-to-section"><a href="#ourteam">Our Team</a></li> 
-                            <li class="scroll-to-section"><a href="#contactus">Contact Us</a></li> 
                             <li class="submenu">
                                 <a href="javascript:;">Appointment</a>
                                 <ul>
@@ -73,7 +71,7 @@
 						<img src="../images/white-logo.png" alt="">
                             <h6>Scheduling Website for Healthcare Facilities</h6>
                             <div class="main-white-button scroll-to-section">
-                                <a href="book_appointment.php">Make an Appointment</a>
+                                <a href="view_appointment.php">Edit Appointments</a>
                             </div>
                         </div>
                     </div>
@@ -144,11 +142,11 @@
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="right-content">
                         <div class="thumb">
-						<a href="schedule_appointment.php">
-							<img src="../images/schedapp.png" alt="">
+						<a href="view_appointment.php">
+							<img src="../images/manapp.png" alt="">
 						</a>
-						<a href="book_appointment.php">
-							<img src="../images/viewapp.png" alt="">
+						<a href="view_session.php">
+							<img src="../images/viewsess.png" alt="">
                         </a>
 						</div>
                     </div>
@@ -246,86 +244,6 @@
         </div>
     </section>
     <!-- ***** Our Team Area Ends ***** -->
-
-    <!-- ***** Contact Us Area Starts ***** -->
-    <section class="section" id="contactus">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 align-self-center">
-                    <div class="left-text-content">
-                        <div class="section-heading">
-                            <h6>Contact Us</h6>
-                            <h2>How Can We Help?</h2>
-                        </div>
-                        <p>For all inquiries, please contact and email us:</p>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="phone">
-                                    <i class="fa fa-phone"></i>
-                                    <h4>Phone Numbers</h4>
-                                    <span><a href="#">080-090-0990</a><br></span>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="message">
-                                    <i class="fa fa-envelope"></i>
-                                    <h4>Emails</h4>
-                                    <span><a href="#">patienthelp@company.com</a><br></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="contact-form">
-                        <form id="contact" action="" method="post">
-                          <div class="row">
-                            <div class="col-lg-12">
-                                <h4>Contact Form</h4>
-                            </div>
-                            <div class="col-lg-6 col-sm-12">
-                              <fieldset>
-                                <input name="name" type="text" id="name" placeholder="Your Name*" required="">
-                              </fieldset>
-                            </div>
-                            <div class="col-lg-6 col-sm-12">
-                              <fieldset>
-                              <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email Address" required="">
-                            </fieldset>
-                            </div>
-                            <div class="col-lg-6 col-sm-12">
-                              <fieldset>
-                                <input name="phone" type="text" id="phone" placeholder="Phone Number*" required="">
-                              </fieldset>
-                            </div>
-                            <div class="col-lg-6">
-                                <div id="filterDate2">    
-                                  <div class="input-group date" data-date-format="dd/mm/yyyy">
-                                    <input  name="date" id="date" type="text" class="form-control" placeholder="dd/mm/yyyy">
-                                    <div class="input-group-addon" >
-                                      <span class="glyphicon glyphicon-th"></span>
-                                    </div>
-                                  </div>
-                                </div>   
-                            </div>
-                            <div class="col-lg-12">
-                              <fieldset>
-                                <textarea name="message" rows="6" id="message" placeholder="Message" required=""></textarea>
-                              </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                              <fieldset>
-                                <button type="submit" id="form-submit" class="main-button-icon">Send Message</button>
-                              </fieldset>
-                            </div>
-                          </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Contact Us Area Ends ***** -->
     
     <!-- ***** Footer Start ***** -->
     <footer>

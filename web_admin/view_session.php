@@ -56,13 +56,14 @@
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="index_admin.php">Home</a></li>
-							<li class="scroll-to-section"><a href="#ourteam">Our Doctors</a></li> 
+							<li class="scroll-to-section"><a href="index_admin.php #ourteam">Our Doctors</a></li> 
                             <li class="submenu">
                                 <a href="javascript:;">Appointment</a>
                                 <ul>
                                     <li><a href="view_appointment.php">View Appointment</a></li>
                                 </ul>
                             </li>
+                            <li class="scroll-to-section"><a href="view_session.php" class="active">Session Logs</a></li>
 							<li><a href="../logout.php">Logout</a></li> 
                         </ul>        
                         <a class='menu-trigger'>
@@ -82,8 +83,8 @@
             <div class="row">
 			<div class="col-lg-4 offset-lg-4 text-center">
                     <div class="section-heading">
-                        <h6>SCHEDULED APPOINTMENTS</h6>
-						<h2>Detailed List</h2>
+                        <h6>VIEW SESSION LOGS</h6>
+						<h2>Monitor List</h2>
                     </div>
             </div>
 			</div>
@@ -137,12 +138,11 @@
         }
     ?>
     </table>
-    
+    </div>
+    </section>
+    <br></br>
  <!-- ***** View Session Ends ***** -->
     
-
-
-
 <!-- ***** Footer Start ***** -->
 <footer>
         <div class="container">
