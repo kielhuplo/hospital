@@ -140,10 +140,11 @@
 								}
 								
 								$query_sched = mysqli_query($con, "SELECT day, time_from, time_to FROM doctor_schedule WHERE doctor_id = $user_id");
+                                Print "<td>Schedule: </td><td>";
 								while($row_sched = mysqli_fetch_array($query_sched)) {
-									Print "<td>Schedule: </td><td>" . strtoupper($row_sched['day']) . " <i>" . $row_sched['time_from'] . " - " . $row_sched['time_to'] . "</i></td></tr>";
+									Print strtoupper($row_sched['day']) . " <i>" . $row_sched['time_from'] . " - " . $row_sched['time_to'] . "</i><br/>";
 								}
-							
+                                Print "</td></tr>";
 							?>
 							</table>
 						</p>
