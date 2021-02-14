@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="../css/lightbox.css">
     <link rel="shortcut icon" type="image/png" href="../images/transparenticon.png">
 	<link rel="stylesheet" href="../css/tempcss.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	</head>
     <body>
     <!-- Header -->
@@ -115,29 +117,36 @@
                         <th>Specialization</th>
                         <th>Details</th>
                     </tr>
+                
                     <?php
-                        $query = mysqli_query($con, "select * from doctor inner join doctor_schedule on doctor.doctor_id = doctor_schedule.doctor_id order by doctor.doctor_id asc"); // SQL Query
-                    
+                        $query = mysqli_query($con, "select * from doctor order by doctor_id asc"); // SQL Query
+
                         while($row = mysqli_fetch_array($query)) {
-
-                            $doctor_id_sched = $row['doctor_id']; //get current doctor_id to view their schedule
-
-                            Print "<tr>";
-                            Print "<td>" . $row['fname'] . " " . $row['lname'] . "</td>";
-                            Print "<td>" . $row['spec_detail']. "<br>";
-
-                            $query_sched = mysqli_query($con, "SELECT day, time_from, time_to FROM doctor_schedule WHERE doctor_id = '".$doctor_id_sched."'"); //get schedule of doctor based on $doctor_id_sched
-                            while($row_sched = mysqli_fetch_array($query_sched)) {  //while loop to output schedule table
-                                Print "<i>" . $row_sched['day'] . ": " . $row_sched['time_from'] . " - " . $row_sched['time_to'] . "</i><br/>";
-                            }
-
-                            Print "</td><td>" . "Contact Num: " . $row['contact_num'] .  "<br>Email: " . $row['email'] . "</td>";
-                            Print "</tr>";
-                            Print "";
+                    ?>
+                            <tr>
+                                <td><?php echo $row['fname'] . " " . $row['lname'] ?></td>
+                                <td><?php echo $row['spec_detail']?>
+                                <br/><a href='javascript:void(0)' class="btn btn-success get_id" data-id='<?php echo $row["doctor_id"] ?>' data-toggle="modal" data-target="#myModal">View Schedule</a></td>
+                                <td><?php echo "Contact Num: " . $row['contact_num'] . "<br>Email: " . $row['email'] ?> </td>
+                            </tr>
+                    <?php
                         }
                     ?>
 				</table>
 			</div>
+        </div>
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+               
+                    <div class="modal-body" id="load_data">
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 	
@@ -181,5 +190,24 @@
     <script src="../js/isotope.js"></script> 
 	<!-- Global Init -->
     <script src="../js/custom.js"></script>
+    <script>
+	  $(document).ready(function(){
+		  $(".get_id").click(function(){
+			  var ids = $(this).data('id');
+			   $.ajax({
+				   url:"view_schedule.php",
+				   method:'POST',
+				   data:{id:ids},
+				   success:function(data){
+					   
+					   $('#load_data').html(data);
+				   
+				   }
+				   
+			   })
+		  })
+		  
+	  })
+	  </script>
   </body>
 </html>
