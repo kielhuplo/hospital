@@ -1,15 +1,15 @@
-	table {
+	.viewTable {
 		margin: auto;
 		width: 80%;
 		background-color: white;
 	}
 	
-	th {
+	.viewTable th {
 		text-align: center;
 		padding: 20px;
 	}
 	
-	td {
+	.viewTable td {
 		padding: 20px;
 	}
 
@@ -72,3 +72,141 @@
 		background-color: white;
 		color: #efb054;
 	}
+	
+	.fixed_header tbody{
+		display:block;
+		width: 100%;
+		overflow: auto;
+		height: 320px;
+		font-size: 12px;
+	}
+
+	.fixed_header thead tr {
+		display: block;
+	}
+
+	.fixed_header thead {
+		background: #4dc0d7;
+	}
+
+	.fixed_header th, .fixed_header td {
+		padding: 5px;
+		text-align: left;
+		width: 400px;
+	}
+	
+	.listTable{
+		border-collapse:collapse;
+		border:1px solid #4dc0d7;
+		background: #fde3b7;
+	}
+	
+	.listTable th {
+		text-align: center;
+		padding: 10px;
+		font-size: 14px;
+		color:white;
+	}
+	
+	.listTable td {
+		margin:0;
+		padding: 10px;
+		text-align: center;
+	}
+	
+	.regDetails {
+		padding: 10px;
+	}
+	
+	.regDetails td {
+		padding: 10px;
+	}
+	
+	#myInput {
+		background-image: url('../images/searchicon.png');
+		background-position: 10px 10px;
+		background-repeat: no-repeat;
+		width: 100%;
+		font-size: 16px;
+		padding: 12px 20px 12px 50px;
+		border: 1px solid #ddd;
+		margin-bottom: 12px;
+	}
+
+	#myTable tr:hover td {
+	    background-color: #efb054;
+	    border-right: none;
+	    border-left: none;
+	}
+	
+	.approveBtn {
+		padding: 0.5rem 1.5rem;
+		border-radius: 40px;
+		border:2px solid #4dc0d7;
+		font-size: 1.125rem;
+		color: white;
+		text-align: center;
+		text-decoration: none;
+		font-size: 16px;
+		cursor: pointer;
+		display:block;
+		background-color:#4dc0d7;
+	}
+
+
+	.approveBtn:hover {
+		border:2px solid #efb054;
+		background-color: white;
+		color: #efb054;
+	}
+	
+	.declineBtn {
+		padding: 0.5rem 1.5rem;
+		border-radius: 40px;
+		border:2px solid #4dc0d7;
+		font-size: 1.125rem;
+		color: white;
+		text-align: center;
+		text-decoration: none;
+		font-size: 16px;
+		cursor: pointer;
+		display:block;
+		background-color:#4dc0d7;
+	}
+
+
+	.declineBtn:hover {
+		border:2px solid #efb054;
+		background-color: white;
+		color: #efb054;
+	}
+	
+	.mngTable {
+		background: #e4dacc;
+		border-collapse:collapse;
+	}
+	
+	.mngTable th {
+		padding: 10px;
+		background-color: #e6ba7a;
+		font-size:14px;
+		text-align:center;
+	}
+	
+	.mngTable td {
+		padding: 20px;
+		font-size:14px;
+		text-align:right;
+	}
+	
+	.headBnnr {
+		background-image: url('../images/headerbg.png');
+		width:100%;
+		height: 150px;
+		color:white;
+	}
+	
+	.respoTable {
+		overflow-x:auto;
+	}
+	

@@ -8,7 +8,7 @@ header("location:index_admin.html"); // redirects if user is not logged in
 
     $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error()); //Connect to server
         mysqli_query($con, "SELECT * FROM appointment");
-        $approval = "CANCELED";
+        $approval = "CANCELLED";
         $id = $_GET['id'];
         $sql = "UPDATE appointment SET approval = '$approval' WHERE appointment_no='$id'";
 	    
