@@ -123,7 +123,7 @@
 								$query = mysqli_query($con, "SELECT contact_num, email, lname, spec_detail, CONCAT(fname, \" \", lname) AS doctor_name, CONCAT(address_line1, \" \", address_line2, \" \", address_city, \" \", address_state) AS 'address' FROM `doctor` WHERE doctor_id = $user_id");
 								while($row = mysqli_fetch_array($query))
 								{
-								Print '<i>WELCOME, </i>DR. ' . strtoupper($row['lname']);
+								Print 'WELCOME, DR. ' . strtoupper($row['lname']);
 								?>
 							</h2>
                         </div>
@@ -156,7 +156,7 @@
                         <div class="thumb">
 							<div class="section-heading">
 							<h6>MY APPOINTMENTS</h6>
-							<h2>Detailed List</h2>
+							<h2>Status of Request</h2>
 							</div>
 								<?php
 									

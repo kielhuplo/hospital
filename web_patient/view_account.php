@@ -66,10 +66,9 @@
 			<div class="col-lg-4 offset-lg-1">
                     <div class="section-heading">
                         <h6>My Profile</h6>
-						<h2>Account Details</h2>
                     </div>
             </div>
-			<table class="viewTable">
+			<table class="viewDeets">
 			<?php
 				$user_id = $_SESSION['user_id'];
 				$query = mysqli_query($con, "SELECT birth_date, contact_num, email, CONCAT(fname, \" \", lname) AS patient_name, CONCAT(address_line1, \" \", address_line2, \" \", address_city, \" \", address_state) AS 'address', marital_status, weight, height, emergency_name, emergency_relation, emergency_num FROM `patient`  WHERE patient_id = $user_id");
@@ -77,8 +76,8 @@
 
 				while($row = mysqli_fetch_array($query))
 				{
-				Print '<tr>';
-				Print '<td>Name: </td><td>' . strtoupper($row['patient_name']) . '</td></tr><tr>';
+				Print '<tr><td colspan="2"><b>Personal Information</b></td></tr>';
+				Print '<tr><td>Name: </td><td>' . strtoupper($row['patient_name']) . '</td></tr><tr>';
 				Print '<td>Birthday: </td><td>' . $row['birth_date'] . '</td></tr><tr>';
 				Print '<td>Contact Number: </td><td>' . $row['contact_num'] . '</td></tr><tr>';
 				Print '<td>Email: </td><td>' . $row['email'] . '</td><tr>';

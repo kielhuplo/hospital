@@ -31,8 +31,6 @@
     <link rel="stylesheet" href="../css/lightbox.css">
     <link rel="shortcut icon" type="image/png" href="../images/transparenticon.png">
 	<link rel="stylesheet" href="../css/tempcss.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	</head>
     <body>
     <!-- Header -->
@@ -145,7 +143,7 @@
 
     <!-- Our Doctors -->
     <section class="section" id="ourteam">
-        <div class="container">
+        <div class="container respoTable">
             <div class="row">
                 <div class="col-lg-4 offset-lg-4 text-center">
                     <div class="section-heading">
@@ -153,43 +151,48 @@
 						<h2>Need Details?</h2>
                     </div>
                 </div>
-                <table border="1px" width="50%" class="viewTable">
+				<div style="width:80%; margin:auto;">
+				 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for doctor name or specialization" title="Type in a specialization">
+				</div>
+				<table class="fixedHeader viewTable" id="myTable">
+					<thead>
                     <tr>
                         <th>Doctor Name</th>
-                        <th>Specialization</th>
+                        <th>Schedule</th>
                         <th>Details</th>
                     </tr>
-                
-                    <?php
+					</thead>
+					<tbody>
+					<?php
                         $query = mysqli_query($con, "select * from doctor order by doctor_id asc"); // SQL Query
 
                         while($row = mysqli_fetch_array($query)) {
                     ?>
                             <tr>
-                                <td><?php echo $row['fname'] . " " . $row['lname'] ?></td>
-                                <td><?php echo $row['spec_detail']?>
-                                <br/><a href='javascript:void(0)' class="btn btn-success get_id" data-id='<?php echo $row["doctor_id"] ?>' data-toggle="modal" data-target="#myModal">View Schedule</a></td>
+                                <td><?php echo "Dr. " . $row['fname'] . " " . $row['lname'] . "<br>" . $row['spec_detail'] ?></td>
+                                <td><a href='javascript:void(0)' class="btn btn-success get_id" data-id='<?php echo $row["doctor_id"] ?>' data-toggle="modal" data-target="#myModal">View Schedule</a></td>
                                 <td><?php echo "Contact Num: " . $row['contact_num'] . "<br>Email: " . $row['email'] ?> </td>
                             </tr>
                     <?php
                         }
                     ?>
+					</tbody>
 				</table>
 			</div>
         </div>
-        <div id="myModal" class="modal fade" role="dialog">
-         <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
+		<div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
                
-               <div class="modal-body" id="load_data">
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-               </div>
+                    <div class="modal-body" id="load_data">
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -229,11 +232,28 @@
     <script src="../js/imgfix.min.js"></script> 
     <script src="../js/slick.js"></script> 
     <script src="../js/lightbox.js"></script> 
-    <script src="../js/isotope.js"></script> 
-    <!-- Global Init -->
-    <script src="../js/custom.js"></script>
-
-    <script>
+    <script src="../js/isotope.js"></script>
+	<script>
+	function myFunction() {
+	  var input, filter, table, tr, td, i, txtValue;
+	  input = document.getElementById("myInput");
+	  filter = input.value.toUpperCase();
+	  table = document.getElementById("myTable");
+	  tr = table.getElementsByTagName("tr");
+	  for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName("td")[0];
+		if (td) {
+		  txtValue = td.textContent || td.innerText;
+		  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+			tr[i].style.display = "";
+		  } else {
+			tr[i].style.display = "none";
+		  }
+		}       
+	  }
+	}
+	</script>
+	<script>
 	  $(document).ready(function(){
 		  $(".get_id").click(function(){
 			  var ids = $(this).data('id');
@@ -252,6 +272,7 @@
 		  
 	  })
 	  </script>
-
+    <!-- Global Init -->
+    <script src="../js/custom.js"></script>
   </body>
 </html>
