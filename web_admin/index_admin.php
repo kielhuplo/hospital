@@ -50,6 +50,7 @@
                                 </ul>
                             </li>
                             <li><a href="view_session.php">Session Logs</a></li>   
+                            <li><a href="register_doctor.php">CREATE DOCTOR</a></li>   
                             <li><a href="../logout.php">Logout</a></li>   
                         </ul>        
                         <a class='menu-trigger'>
