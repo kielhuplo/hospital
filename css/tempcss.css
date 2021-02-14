@@ -1,17 +1,20 @@
 	.viewTable {
 		margin: auto;
 		width: 80%;
-		background-color: white;
+		border:1px solid #4dc0d7;
+		background: #fde3b7;
 	}
 	
 	.viewTable th {
-		text-align: center;
-		padding: 20px;
+		background: #4dc0d7;
+		color: #fff;
+		font-size: 14px;
 	}
 	
-	.viewTable td {
-		padding: 20px;
+	.viewTable tr:hover td {
+	    background-color: #efb054;
 	}
+	
 
 	.updatebutton {
 		padding-right: 1.5rem;
@@ -135,8 +138,6 @@
 
 	#myTable tr:hover td {
 	    background-color: #efb054;
-	    border-right: none;
-	    border-left: none;
 	}
 	
 	.approveBtn {
@@ -210,3 +211,54 @@
 		overflow-x:auto;
 	}
 	
+	.fixedHeader tbody{
+		display: block;
+		overflow: auto;
+		height: 450px;
+	}
+
+	.fixedHeader thead tr {
+		display: table-header-group;
+	}
+
+	.fixedHeader thead {
+		background: #4dc0d7;
+	}
+
+	.fixedHeader th, .fixedHeader td {
+		padding: 20px;
+		text-align: left;
+		width: 400px;
+	}
+	
+	.modal {
+		overflow-y: auto;
+	}
+
+	.modal-open {
+		overflow: scroll;
+		width: 100%;
+		padding-right: 0!important;
+	}
+	
+	.viewDeets {
+		margin: auto;
+		width: 80%;
+		border:1px solid #4dc0d7;
+		background: white;
+	}
+	
+	.viewDeets th {
+		background: #4dc0d7;
+		color: #fff;
+		font-size: 14px;
+		padding: 20px;
+	}
+	
+	.viewDeets td {
+		padding: 20px;
+	}
+	
+	.viewDeets tr:hover td {
+		color: #4dc0d7;
+	}
