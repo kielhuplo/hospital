@@ -25,21 +25,7 @@
     <link rel="stylesheet" href="../css/owl-carousel.css">
     <link rel="stylesheet" href="../css/lightbox.css">
     <link rel="shortcut icon" type="image/png" href="../images/transparenticon.png">
-    <style>
-	table {
-	  margin: auto;
-	  width: 70%;
-	  background-color: white;
-	}
-	
-	th {
-	  text-align: center;
-	}
-	
-	td {
-	  padding: 20px;
-	}
-	</style>
+    <link rel="stylesheet" href="../css/tempcss.css">
 	</head>
     <body>
     <!-- Header -->
@@ -75,19 +61,25 @@
         </div>
     </header>
 
-    <!-- Manage Appointment -->
+    <!-- View Appointment -->
     <section class="section" id="menu">
         <div class="container">
             <div class="row">
-			<div class="col-lg-4 offset-lg-4 text-center">
-                    <div class="section-heading">
-                        <h6>MANAGE APPOINTMENTS</h6>
-						<h2>Edit List</h2>
+			<div class="col-lg-12 text-center">
+                    <div class="headBnnr">
+                    <br<br><br><br><br>
+                        <h6>SCHEDULED APPOINTMENTS</h6>
+						<h2><b>EDIT APPOINTMENTS</b></h2>
                     </div>
-            </div>
-		</div>
-    <table align="center" border="1px" width="50%">
-        <tr>
+                </div>
+		    </div>
+        <div class="respoTable">
+    <?php
+        $user_id = $_SESSION['user_id'];
+        $query = mysqli_query($con, "Select doctor.fname as doctor_fname, doctor.lname as doctor_lname, patient.fname, patient.lname, appointment.appointment_date, appointment.appointment_time, appointment.details, appointment.appointment_no, appointment.approval FROM patient inner join appointment inner join doctor where patient.patient_id = appointment.patient_id && appointment.doctor_id = doctor.doctor_id ORDER BY appointment_date asc");
+
+        Print '<table align="center" class="fixed_header mngTable">
+        <thead><tr>
             <th>PATIENT</th>
             <th>DOCTOR</th>
             <th>APPOINTMENT DATE</th>
@@ -96,11 +88,8 @@
             <th>STATUS</th>
             <th>UPDATE</th>
             <th>Delete</th>
-        </tr>
-    <?php
-        $user_id = $_SESSION['user_id'];
-        $query = mysqli_query($con, "Select doctor.fname as doctor_fname, doctor.lname as doctor_lname, patient.fname, patient.lname, appointment.appointment_date, appointment.appointment_time, appointment.details, appointment.appointment_no, appointment.approval FROM patient inner join appointment inner join doctor where patient.patient_id = appointment.patient_id && appointment.doctor_id = doctor.doctor_id ORDER BY appointment_date asc");
-       
+        </tr></thead>';
+
         while($row = mysqli_fetch_array($query))
         {
         Print '<tr>';
@@ -114,11 +103,12 @@
         Print "<td><a class='btn-danger' href='./delete.php?id= ".$row['appointment_no']. "'>DELETE</a>";
         Print '</tr>';
         }
-
     ?>
-    </table>
+                </table>
+            </div>
         </div>
     </section>
+    <!-- View Appointment -->
 
 	<!-- Footer -->
     <footer>

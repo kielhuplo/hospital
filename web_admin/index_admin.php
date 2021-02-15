@@ -102,12 +102,13 @@
         </div>
     </div>
 
-    <!-- About -->
+    <!-- About Area Starts -->
     <section class="section" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="left-text-content">
+					<img src="../images/top.png"><br><br>
                         <div class="section-heading">
                             <h6>My Account</h6>
                             <h2>
@@ -116,22 +117,12 @@
 								?>
 							</h2>
                         </div>
-                        <p>We at PatientHelp believes that Digitalization is one of the key of Innovation. 
-						<br/><br/>By making appointment digitally or available on the internet, scheduling and meeting your Doctor in an orderly fashion could help many patients during this time of pandemic. 
-						<br/><br/>Contactless appointment scheduling could also be a way to help reduce transmission  of the Covid-19 Virus  and avoid a crowd of patient eaiting in line just to get an appointment. 
-						<br/><br/>By the use of PatientHelp not only can patients schedule for an appointment but also they could choose the Doctor who is available at the moment along with their specialization.</p>
-                        <div class="row">
-                            <div class="col-4">
-                                <img src="https://www.usnews.com/dims4/USNEWS/e0809c9/2147483647/crop/2000x1313%2B0%2B0/resize/640x420/quality/85/?url=http:%2F%2Fmedia.beam.usnews.com%2F0d%2Fc3%2F396b0ea644d98747667d7b993ccd%2F170726-doctors-stock.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img src="https://progressivesforimmigrationreform.org/wp-content/uploads/2020/04/Doctors-scaled.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img src="https://cdn.halemind.com/assets/static/hiw_doctors-1730ad4e76d17e37e63f882bf1f96bac18955fb873740d617b631a8da0ef88f2.png" alt="">
-                            </div>
-                        </div>
+                        <img src="../images/bot.png" alt="">
+                        <br><br><br><br>
                     </div>
+                    <a href="register_doctor.php">
+							<img src="../images/cdoc.png" alt="">
+                    </a>
                 </div>
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="right-content">
@@ -148,6 +139,7 @@
             </div>
         </div>
     </section>
+    <!-- About  -->
 
     <!-- Our Team -->
     <section class="section" id="ourteam">

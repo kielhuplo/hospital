@@ -25,21 +25,7 @@
     <link rel="stylesheet" href="../css/owl-carousel.css">
     <link rel="stylesheet" href="../css/lightbox.css">
     <link rel="shortcut icon" type="image/png" href="../images/transparenticon.png">
-    <style>
-	table {
-	  margin: auto;
-	  width: 70%;
-	  background-color: white;
-	}
-	
-	th {
-	  text-align: center;
-	}
-	
-	td {
-	  padding: 20px;
-	}
-	</style>
+    <link rel="stylesheet" href="../css/tempcss.css">
 	</head>
     <body>
     <!-- Header -->
@@ -75,48 +61,42 @@
         </div>
     </header>
 
-    <!-- View Session -->
+    <!-- View Session Starts -->
     <section class="section" id="menu">
         <div class="container">
             <div class="row">
-				<div class="col-lg-4 offset-lg-4 text-center">
-                    <div class="section-heading">
-                        <h6>VIEW SESSION LOGS</h6>
-						<h2>Monitor List</h2>
+			<div class="col-lg-12 text-center">
+                    <div class="headBnnr">
+                    <br<br><br><br><br>
+                        <h6>MONITOR LOGIN & LOGOUT</h6>
+						<h2><b>SESSION LOGS</b></h2>
                     </div>
-				</div>
+            </div>
 			</div>
-  
-    <table align="center" border="1px">
-        <tr>
-            <th>DOCTOR</th>
-            <th>LOGIN DATE & TIME</th>
-            <th>LOGOUT DATE & TIME</th>
-        </tr>
+    <div class="respoTable">
 
     <?php
-
         $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error());
         $user_id = $_SESSION['user_id'];
         $query = mysqli_query($con, "SELECT login_date_time, logout_date_time, CONCAT(fname, \" \", lname) AS doctor_name FROM `doctor_log` INNER JOIN doctor on doctor.doctor_id = doctor_log.doctor_id ORDER BY login_date_time asc");
         
+        Print '<table align="center" class="fixed_header mngTable">
+        <thead><tr>
+            <th>DOCTOR</th>
+            <th>LOGIN DATE & TIME</th>
+            <th>LOGOUT DATE & TIME</th>
+        </tr></thead>';
+
         while($row = mysqli_fetch_array($query))
         {
         Print '<tr>';
-	    Print '<td>' . $row['doctor_name'];
-        Print '<td>' . $row['login_date_time'];
-        Print '<td>' . $row['logout_date_time'];
+	    Print '<td style="text-align:center">' . $row['doctor_name'];
+        Print '<td style="text-align:center">' . $row['login_date_time'];
+        Print '<td style="text-align:center">' . $row['logout_date_time'];
         Print '</tr>';
         }
     ?>
     </table><br>
-
-    <table align="center" border="1px">
-        <tr>
-            <th>PATIENT</th>
-            <th>LOGIN DATE & TIME</th>
-            <th>LOGOUT DATE & TIME</th>
-        </tr>
 
     <?php
 
@@ -124,24 +104,30 @@
         $user_id = $_SESSION['user_id'];
         $query = mysqli_query($con, "SELECT login_date_time, logout_date_time, CONCAT(fname, \" \", lname) AS patient_name FROM `patient_log` INNER JOIN patient WHERE patient.patient_id = patient_log.patient_id ORDER BY login_date_time asc");
         
-
+        Print '<table align="center" class="fixed_header mngTable">
+        <thead><tr>
+            <th>PATIENT</th>
+            <th>LOGIN DATE & TIME</th>
+            <th>LOGOUT DATE & TIME</th>
+        </tr></thead>';
         
         while($row = mysqli_fetch_array($query))
         {
         Print '<tr>';
-	    Print '<td>' . $row['patient_name'];
-        Print '<td>' . $row['login_date_time'];
-        Print '<td>' . $row['logout_date_time'];
+	    Print '<td style="text-align:center">' . $row['patient_name'];
+        Print '<td style="text-align:center">' . $row['login_date_time'];
+        Print '<td style="text-align:center">' . $row['logout_date_time'];
         Print '</tr>';
         }
     ?>
-    </table>
-    </div>
+            </table>
+        </div>
     </section>
     <br></br>
+    <!-- View Session Ends -->
     
-<!-- Footer -->
-<footer>
+    <!-- Footer -->
+    <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-xs-12">
