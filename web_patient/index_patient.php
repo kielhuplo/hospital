@@ -35,7 +35,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!--  Logo  -->
-                        <a href="index_admin.html" class="logo">
+                        <a href="index_patient.php" class="logo">
                             <img src="../images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
                         <!--  Menu Start  -->
@@ -46,7 +46,6 @@
                                 <ul>
 									<li class="scroll-to-section"><a href="#about">Account</a></li>
                                     <li class="scroll-to-section"><a href="view_account.php #menu">View Profile</a></li>
-									<li class="scroll-to-section"><a href="#">Edit Profile</a></li>
                                 </ul>
                             </li>
 							<li class="submenu">
@@ -134,11 +133,8 @@
 						<h2>Manage Account</h2>
 						</div>
 						<div class="row">
-                            <div class="col-6">
+                            <div class="col-lg-12">
                                 <a href="view_account.php"><div class="acctbutton"> View Account </div></a>
-                            </div>
-                            <div class="col-6">
-                                <a href="#"><div class="acctbutton"> Edit Account </div></a>
                             </div>
                         </div>
                     </div>

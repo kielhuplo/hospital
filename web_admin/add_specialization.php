@@ -45,25 +45,21 @@
                         </a>
                         <!--  Menu  -->
 						<ul class="nav">
-                            <li class="scroll-to-section"><a href="index_patient.php #top">Home</a></li>
-							<li class="submenu">
-                                <a href="javascript:;">My Account</a>
-                                <ul>
-									<li class="scroll-to-section"><a href="index_patient.php #about">Account</a></li>
-                                    <li class="scroll-to-section"><a href="view_account.php #menu">View Profile</a></li>
-                                </ul>
-                            </li>
+                            <li class="scroll-to-section"><a href="index_admin.php #top">Home</a></li>
+						    <li class="scroll-to-section"><a href="#ourteam">Our Team</a></li> 
                             <li class="submenu">
-                                <a href="javascript:;" class="active">Appointment</a>
-                                <ul>
-                                    <li><a href="#about">Book Appointment</a></li>
-                                    <li><a href="view_appointment.php #menu.php">View Appointment</a></li>
-									<li><a href="#ourteam">Our Doctors</a></li>
-                                </ul>
-                            </li>
-							<li class="scroll-to-section"><a href="index_patient.php #contactus">Contact Us</a></li>
-							<li><a href="../logout.php">Logout</a></li> 
-                        </ul>       
+                            <a href="javascript:;" class="active">Functions</a>
+                            <ul>
+                              <li><a href="view_appointment.php">Edit Appointments</a></li>
+                              <li><a href="view_session.php">Session Logs</a></li>  
+                              <li><a href="register_doctor.php">Add Doctor</a></li>  
+                              <li><a href="add_specialization.php">Add Specialization</a></li> 
+                              <li><a href="view_doctor.php">View Doctors List</a></li> 
+                              <li><a href="view_patient.php">View Patients List</a></li> 
+								            </ul>
+                          </li> 
+                          <li><a href="../logout.php">Logout</a></li>   
+                        </ul>           
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
@@ -80,8 +76,8 @@
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="left-text-content">
                         <div class="section-heading">
-                            <h6>Book Appointment</h6>
-                            <h2>Schedule Appointment</h2>
+                            <h6>Specialization</h6>
+                            <h2>Add Specialization</h2>
                         </div>
                     <div class="contact-form">
                         <form action="" method="post">
@@ -89,27 +85,10 @@
 							<br/>
 							<br/>
                             <div class="col-lg-6">
-                              <fieldset>
-									<br/>Doctor:
-									<select name="doctor_id">
-                                        <?php
-                                            $doctor_query = mysqli_query($con, "SELECT doctor_id, CONCAT(fname, \" \", lname) AS doctor_assigned FROM doctor ORDER BY doctor_id ASC"); // SQL Query
-                                            while($doctor_row = mysqli_fetch_array($doctor_query)){
-                                                Print "<option value=\"" . $doctor_row['doctor_id'] . "\">" . $doctor_row['doctor_assigned'] . "</option>";  // output doctors on dropdown
-                                            }
-                                        ?>
-									</select>
-                              </fieldset>
+                              
 							  <fieldset>
-									Appointment Date:
-										<input type="date" name="appointment_date" required="required" />
-									Appointment Time:
-										<input type="time" name="appointment_time" required="required" />
-									Details:
-										<select name="details">
-											<option value="Checkup">Checkup</option>
-											<option value="Follow-up">Follow-up</option>
-										</select>
+								Add Specialization:
+                                    <input type="spec_detail" name="spec_detail" required="required" />
                               <fieldset>
 								<br/>
                                 <button type="submit" id="form-submit" class="main-button-icon">Submit</button><br/><br/>
@@ -120,19 +99,14 @@
 						<?php
 						if($_SERVER["REQUEST_METHOD"] == "POST")
 						{
-							$doctor_id = ($_POST['doctor_id']);
-							$appointment_date = ($_POST['appointment_date']);
-							$appointment_time = ($_POST['appointment_time']);
-							$details = ($_POST['details']);
-							$patient_id = $_SESSION['user_id'];
-                    
-							
+							$spec_detail = ($_POST['spec_detail']);
+                           
 							$date = strftime("%Y-%m-%d");							
 						  
-                            mysqli_query($con, "INSERT INTO appointment (appointment_date,appointment_time,details,date_posted,doctor_id,patient_id,approval) VALUES
-                            ('$appointment_date','$appointment_time','$details','$date','$doctor_id','$patient_id','PENDING')"); //Inserts the value to table users
+                            mysqli_query($con, "INSERT INTO specialization (spec_detail,creation_date) VALUES
+                            ('$spec_detail','$date')"); //Inserts the value to table specialization
                             Print '<script>alert("Appointment Sent to Doctor!");</script>'; // Prompts the user
-                            Print '<script>window.location.assign("book_appointment.php");</script>'; // redirects to register.php
+                            Print '<script>window.location.assign("add_specialization.php");</script>'; // redirects to register.php
 						}
 						?>
                     </div>
@@ -149,59 +123,6 @@
         </div>
     </section>
 
-    <!-- Our Doctors -->
-    <section class="section" id="ourteam">
-        <div class="container respoTable">
-            <div class="row">
-                <div class="col-lg-4 offset-lg-4 text-center">
-                    <div class="section-heading">
-                        <h6>Our Doctors</h6>
-						<h2>Need Details?</h2>
-                    </div>
-                </div>
-				<div style="width:80%; margin:auto;">
-				 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for doctor name or specialization" title="Type in a specialization">
-				</div>
-				<table class="fixedHeader viewTable" id="myTable">
-					<thead>
-                    <tr>
-                        <th>Doctor Name</th>
-                        <th>Schedule</th>
-                        <th>Details</th>
-                    </tr>
-					</thead>
-					<tbody>
-					<?php
-                        $query = mysqli_query($con, "select * from doctor order by doctor_id asc"); // SQL Query
-
-                        while($row = mysqli_fetch_array($query)) {
-                    ?>
-                            <tr>
-                                <td><?php echo "Dr. " . $row['fname'] . " " . $row['lname'] . "<br>" . $row['spec_detail'] ?></td>
-                                <td><a href='javascript:void(0)' class="btn btn-success get_id" data-id='<?php echo $row["doctor_id"] ?>' data-toggle="modal" data-target="#myModal">View Schedule</a></td>
-                                <td><?php echo "Contact Num: " . $row['contact_num'] . "<br>Email: " . $row['email'] ?> </td>
-                            </tr>
-                    <?php
-                        }
-                    ?>
-					</tbody>
-				</table>
-			</div>
-        </div>
-		<div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-               
-                    <div class="modal-body" id="load_data">
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer>

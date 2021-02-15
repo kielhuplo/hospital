@@ -35,23 +35,26 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!--  Logo  -->
-                        <a href="index_patient.php" class="logo">
+                        <a href="index_admin.php" class="logo">
                             <img src="../images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
                         <!--  Menu  -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="index_admin.php">Home</a></li>
-							<li class="scroll-to-section"><a href="index_admin.php #ourteam">Our Team</a></li> 
+                            <li class="scroll-to-section"><a href="index_admin.php #top">Home</a></li>
+						    <li class="scroll-to-section"><a href="#ourteam">Our Team</a></li> 
                             <li class="submenu">
-                                <a href="javascript:;" class="active">Functions</a>
-                                <ul>
-                                    <li><a href="view_appointment.php">Edit Appointments</a></li>
-									<li><a href="view_session.php">Session Logs</a></li>
-									<li><a href="register_doctor.php">Add Doctor</a></li>
-                                </ul>
-                            </li> 
-							<li><a href="../logout.php">Logout</a></li> 
-                        </ul>        
+                            <a href="javascript:;" class="active">Functions</a>
+                            <ul>
+                              <li><a href="view_appointment.php">Edit Appointments</a></li>
+                              <li><a href="view_session.php">Session Logs</a></li>  
+                              <li><a href="register_doctor.php">Add Doctor</a></li>  
+                              <li><a href="add_specialization.php">Add Specialization</a></li> 
+                              <li><a href="view_doctor.php">View Doctors List</a></li> 
+                              <li><a href="view_patient.php">View Patients List</a></li> 
+								            </ul>
+                          </li> 
+                          <li><a href="../logout.php">Logout</a></li>   
+                        </ul>         
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
