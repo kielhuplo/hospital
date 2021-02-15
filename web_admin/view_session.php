@@ -35,7 +35,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!--  Logo  -->
-                        <a href="index_patient.php" class="logo">
+                        <a href="index_admin.php" class="logo">
                             <img src="../images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
                         <!--  Menu  -->
