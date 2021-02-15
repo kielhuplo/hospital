@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2021 at 03:01 PM
--- Server version: 10.4.16-MariaDB
--- PHP Version: 7.4.12
+-- Generation Time: Feb 15, 2021 at 03:50 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -92,15 +92,13 @@ INSERT INTO `doctor` (`doctor_id`, `username`, `password`, `fname`, `lname`, `co
 (6, 'dexbentley', 'tJnV4a3j', 'Dexter', 'Bentley', '09029112551', 'dexbentley@gmail.com', 'Edsa Cor Gen. Mc Arthur Ave.', 'Cubao', 'Quezon City', 'Quezon', '1109', '2016-12-29 14:25:37', 'Neurologist', 1),
 (7, 'honlawson', 'bZU3eC97', 'Honey', 'Lawson', '09265612551', 'honlawson@gmail.com', 'E. Abada Street.', 'Loyola Heights', 'Quezon City', 'Metro Manila', '1108', '2018-11-20 14:25:37', 'Bones Specialist', 3),
 (8, 'thomwheat', '2wFKZ5hx', 'Thomas', 'Wheatley', '09050312551', 'thomwheat@gmail.com', 'Ansons Trade Center', '800 Salazar Corner Ongpin Streets', 'Manila', 'Metro Manila', '1108', '2018-11-20 14:25:37', 'Cardiologist', 2),
-(9, 'nalbar', 'rDGYm7h3', 'Nala', 'Barr', '09050312551', 'thomwheat@gmail.com', '5/F B And L Building 116 Legaspi Street', 'Legaspi Village', 'Makati City', 'Metro Manila', '1200', '2020-11-20 15:25:37', 'Dentist', 1),
+(9, 'nalbar', 'rDGYm7h3', 'Nala', 'Barr', '09050312551', 'nalbar@gmail.com', '5/F B And L Building 116 Legaspi Street', 'Legaspi Village', 'Makati City', 'Metro Manila', '1200', '2020-11-20 15:25:37', 'Dentist', 1),
 (10, 'mondris', 'HHe4PcFh', 'Monica', 'Driscoll', '09185462551', 'mondris@gmail.com', '16/F Cocobank Building', 'Makati Avenue', 'Makati City', 'Metro Manila', '1200', '2017-10-19 15:25:37', 'Surgeon', 4),
 (11, 'julmid', '3qFGky4W', 'Julius', 'Schmidt', '09770125359', 'julmid@gmail.com', '1540 San Marcelino St.', 'Malate', 'Manila', 'Metro Manila', '1000', '2020-10-19 15:25:37', 'General Physician', 2),
 (12, 'jamswi', 'Vfh79hAd', 'Jamal', 'Swift', '09770126325', 'jamswi@gmail.com', 'Fedman Suites199 Salcedo Street', 'Legaspi Village', 'Makati City', 'Metro Manila', '1200', '2020-08-08 15:25:37', 'Homeopath', 3),
 (13, 'tywel', 'ZWDMfq36', 'Tyrell', 'Welch', '09485956325', 'tywel@gmail.com', '125 West Capitol Drive', 'Kapitolyo', 'Pasig City', 'Pasig City', '1600', '2016-08-08 15:25:37', 'Obstetrician', 3),
 (14, 'elkouma', 'W7bTzppA', 'Elena', 'Kouma', '09484456325', 'elkouma@gmail.com', 'PICC CCP Complex D - 431', 'Roxas Boulevard', 'Pasay City', 'Pasay City', '1300', '2017-08-08 15:25:37', 'Dermatologist', 1),
-(15, 'ricoalba', 'W7bTzppA', 'Rico', 'Alba', '09215042676', 'ricoalba@gmail.com', '1801 Centerpoint Building Julia Vargas Corner Garnet Street', 'Ortigas Center', 'Pasig City', 'Pasig City', '1600', '2016-08-08 08:12:36', 'Surgeon', 4),
-(29, 'khuplo', 'khuplo', 'Kiel', 'Huplo', '09050318759', 'kielhuplo@gmail.com', '1725 South, Flair Towers', 'asdf', 'Mandaluyong City,', 'Metro Manila', '1550', '2021-02-14', 'Neurologist', 2),
-(30, 'lok', 'lok', 'KIEL', 'HUPLO', '09050318759', 'kielhuplo@gmail.com', '1725 South, Flair Towers', 'ASDFASDFASDF', 'Mandaluyong City,', 'Metro Manila', '1550', '2021-02-15', 'Neurologist', 2);
+(15, 'ricoalba', 'W7bTzppA', 'Rico', 'Alba', '09215042676', 'ricoalba@gmail.com', '1801 Centerpoint Building Julia Vargas Corner Garnet Street', 'Ortigas Center', 'Pasig City', 'Pasig City', '1600', '2016-08-08 08:12:36', 'Surgeon', 4);
 
 -- --------------------------------------------------------
 
@@ -282,7 +280,7 @@ ALTER TABLE `specialization`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `appointment_no` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `appointment_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `doctor`
@@ -294,25 +292,25 @@ ALTER TABLE `doctor`
 -- AUTO_INCREMENT for table `doctor_log`
 --
 ALTER TABLE `doctor_log`
-  MODIFY `doctor_log_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `doctor_log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `doctor_schedule`
 --
 ALTER TABLE `doctor_schedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `patient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `patient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `patient_log`
 --
 ALTER TABLE `patient_log`
-  MODIFY `patient_log_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `patient_log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
