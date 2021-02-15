@@ -68,11 +68,14 @@
                             <img src="images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
                         <!--  Menu  -->
-                        <ul class="nav">
-							<li class="scroll-to-section"><a href="index.html">Home</a></li> 
-                            <li class="scroll-to-section"><a href="#top" class="active">Register</a></li>
-                            <li class="scroll-to-section"><a href="login.php">Login</a></li>
-                        </ul>        
+           				<ul class="nav">
+                            <li class="scroll-to-section"><a href="index.html #top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="index.html #about">About Us</a></li>
+							<li class="scroll-to-section"><a href="index.html #ourteam">Our Team</a></li> 
+                            <li class="scroll-to-section"><a href="index.html #contactus">Contact Us</a></li>
+							<li class="scroll-to-section"><a href="login.php #top">Login</a></li> 
+							<li class="scroll-to-section"><a href="#top" class="active">Register</a></li> 
+                        </ul>    
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
