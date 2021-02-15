@@ -57,6 +57,7 @@
 									<li><a href="#ourteam">Our Doctors</a></li>
                                 </ul>
                             </li>
+							<li class="scroll-to-section"><a href="index_patient.php #contactus">Contact Us</a></li>
 							<li><a href="../logout.php">Logout</a></li> 
                         </ul>       
                         <a class='menu-trigger'>

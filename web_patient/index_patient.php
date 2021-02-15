@@ -41,6 +41,7 @@
                         <!--  Menu Start  -->
 						<ul class="nav">
 							<li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+							<li class="scroll-to-section"><a href="#contactus">Contact Us</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">My Account</a>
                                 <ul>
@@ -57,7 +58,6 @@
 									<li class="scroll-to-section"><a href="book_appointment.php #ourteam">View Doctors</a></li>
                                 </ul>
                             </li>
-							<li class="scroll-to-section"><a href="#contactus">Contact Us</a></li>
                             <li><a href="../logout.php">Logout</a></li>   
                         </ul>              
                         <a class='menu-trigger'>
