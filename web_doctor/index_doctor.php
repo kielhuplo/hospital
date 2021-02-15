@@ -54,6 +54,8 @@
                                     <li><a href="view_appointment.php">Manage Appointments</a></li>
                                 </ul>
                             </li> 
+                            <li><a href="add_schedule.php">Add Schedule</a></li>
+                            <li><a href="add_specialization.php">Add Specialization</a></li>
                             <li><a href="../logout.php">Logout</a></li>
                         </ul>        
                         <a class='menu-trigger'>
