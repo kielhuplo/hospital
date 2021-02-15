@@ -40,17 +40,18 @@
                         </a>
                         <!--  Menu  -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="index_doctor.php #top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="index_doctor.php #top">Home</a></li>
                             <li class="scroll-to-section"><a href="index_doctor.php #about">Account</a></li>
                             <li class="scroll-to-section"><a href="index_doctor.php #contactus">Contact Us</a></li> 
                             <li class="submenu">
-                                <a href="javascript:;">Appointment</a>
+                                <a href="javascript:;" class="active">Appointment</a>
                                 <ul>
-                                    <li><a href="view_appointment.php" class="active">Manage Appointments</a></li>
+                                    <li><a href="view_appointment.php">Manage Appointments</a></li>
                                 </ul>
                             </li> 
+                            <li><a href="add_schedule.php">Add Schedule</a></li>
                             <li><a href="../logout.php">Logout</a></li>
-                        </ul>        
+                        </ul>       
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>

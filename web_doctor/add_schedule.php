@@ -43,23 +43,20 @@
                         <a href="index_patient.php" class="logo">
                             <img src="../images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
-                        <!--  Menu  -->
-						<ul class="nav">
-                            <li class="scroll-to-section"><a href="index_admin.php #top">Home</a></li>
-						    <li class="scroll-to-section"><a href="#ourteam">Our Team</a></li> 
+                        <!--  Menu  -->   
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="index_doctor.php #top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="index_doctor.php #about">Account</a></li>
+                            <li class="scroll-to-section"><a href="index_doctor.php #contactus">Contact Us</a></li> 
                             <li class="submenu">
-                            <a href="javascript:;" class="active">Functions</a>
-                            <ul>
-                              <li><a href="view_appointment.php">Edit Appointments</a></li>
-                              <li><a href="view_session.php">Session Logs</a></li>  
-                              <li><a href="register_doctor.php">Add Doctor</a></li>  
-                              <li><a href="add_specialization.php">Add Specialization</a></li> 
-                              <li><a href="view_doctor.php">View Doctors List</a></li> 
-                              <li><a href="view_patient.php">View Patients List</a></li> 
-								            </ul>
-                          </li> 
-                          <li><a href="../logout.php">Logout</a></li>   
-                        </ul>           
+                                <a href="javascript:;">Appointment</a>
+                                <ul>
+                                    <li><a href="view_appointment.php">Manage Appointments</a></li>
+                                </ul>
+                            </li> 
+                            <li><a href="add_schedule.php" class="active">Add Schedule</a></li>
+                            <li><a href="../logout.php">Logout</a></li>
+                        </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
@@ -76,8 +73,8 @@
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="left-text-content">
                         <div class="section-heading">
-                            <h6>Specialization</h6>
-                            <h2>Add Specialization</h2>
+                            <h6>Schedule</h6>
+                            <h2>Add Schedule</h2>
                         </div>
                     <div class="contact-form">
                         <form action="" method="post">
@@ -85,10 +82,32 @@
 							<br/>
 							<br/>
                             <div class="col-lg-6">
-                              
+                              <fieldset>
+									<br/>Doctor:
+									<select name="doctor_id">
+                                        <?php
+                                            $doctor_query = mysqli_query($con, "SELECT doctor_id, CONCAT(fname, \" \", lname) AS doctor_assigned FROM doctor ORDER BY doctor_id ASC"); // SQL Query
+                                            while($doctor_row = mysqli_fetch_array($doctor_query)){
+                                                Print "<option value=\"" . $doctor_row['doctor_id'] . "\">" . $doctor_row['doctor_assigned'] . "</option>";  // output doctors on dropdown
+                                            }
+                                        ?>
+									</select>
+                              </fieldset>
 							  <fieldset>
-								Add Specialization:
-                                    <input type="spec_detail" name="spec_detail" required="required" />
+                                    Day:
+                                        <select name="day">
+                                            <?php
+                                                Print "<option value=\"\" selected disabled hidden>Select Day</option>";
+                                                $day_query = mysqli_query($con, "SELECT DISTINCT day FROM doctor_schedule"); // SQL Query
+                                                while($day_row = mysqli_fetch_array($day_query)){
+                                                    Print "<option value=\"" . $day_row['day'] . "\">" . $day_row['day'] . "</option>";  // output doctors on dropdown
+                                                }
+                                            ?>
+                                        </select>
+									Time From:
+										<input type="time" name="time_from" required="required" />
+									Time To:
+                                        <input type="time" name="time_to" required="required" />
                               <fieldset>
 								<br/>
                                 <button type="submit" id="form-submit" class="main-button-icon">Submit</button><br/><br/>
@@ -99,14 +118,15 @@
 						<?php
 						if($_SERVER["REQUEST_METHOD"] == "POST")
 						{
-							$spec_detail = ($_POST['spec_detail']);
-                           
-							$date = strftime("%Y-%m-%d");							
+							$doctor_id = ($_POST['doctor_id']);
+							$day = ($_POST['day']);
+							$time_from = ($_POST['time_from']);
+							$time_to = ($_POST['time_to']);                    						
 						  
-                            mysqli_query($con, "INSERT INTO specialization (spec_detail,creation_date) VALUES
-                            ('$spec_detail','$date')"); //Inserts the value to table specialization
-                            Print '<script>alert("Appointment Sent to Doctor!");</script>'; // Prompts the user
-                            Print '<script>window.location.assign("add_specialization.php");</script>'; // redirects to register.php
+                            mysqli_query($con, "INSERT INTO doctor_schedule (day,time_from,time_to,doctor_id) VALUES
+                            ('$day','$time_from','$time_to','$doctor_id')"); //Inserts the value to table users
+                            Print '<script>alert("Schedule Created!");</script>'; // Prompts the user
+                            Print '<script>window.location.assign("add_schedule.php");</script>'; // redirects to register.php
 						}
 						?>
                     </div>
@@ -122,7 +142,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Footer -->
     <footer>
@@ -162,45 +181,6 @@
     <script src="../js/slick.js"></script> 
     <script src="../js/lightbox.js"></script> 
     <script src="../js/isotope.js"></script>
-	<script>
-	function myFunction() {
-	  var input, filter, table, tr, td, i, txtValue;
-	  input = document.getElementById("myInput");
-	  filter = input.value.toUpperCase();
-	  table = document.getElementById("myTable");
-	  tr = table.getElementsByTagName("tr");
-	  for (i = 0; i < tr.length; i++) {
-		td = tr[i].getElementsByTagName("td")[0];
-		if (td) {
-		  txtValue = td.textContent || td.innerText;
-		  if (txtValue.toUpperCase().indexOf(filter) > -1) {
-			tr[i].style.display = "";
-		  } else {
-			tr[i].style.display = "none";
-		  }
-		}       
-	  }
-	}
-	</script>
-	<script>
-	  $(document).ready(function(){
-		  $(".get_id").click(function(){
-			  var ids = $(this).data('id');
-			   $.ajax({
-				   url:"view_schedule.php",
-				   method:'POST',
-				   data:{id:ids},
-				   success:function(data){
-					   
-					   $('#load_data').html(data);
-				   
-				   }
-				   
-			   })
-		  })
-		  
-	  })
-	  </script>
     <!-- Global Init -->
     <script src="../js/custom.js"></script>
   </body>
