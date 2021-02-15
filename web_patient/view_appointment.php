@@ -46,7 +46,6 @@
                                 <ul>
 									<li class="scroll-to-section"><a href="index_patient.php #about">Account</a></li>
                                     <li class="scroll-to-section"><a href="view_account.php #menu">View Profile</a></li>
-									<li class="scroll-to-section"><a href="#">Edit Profile</a></li>
                                 </ul>
                             </li>
                             <li class="submenu">

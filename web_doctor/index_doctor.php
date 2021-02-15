@@ -40,7 +40,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!--  Logo  -->
-                        <a href="index_admin.html" class="logo">
+                        <a href="index_doctor.php" class="logo">
                             <img src="../images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
                         <!--  Menu  -->
