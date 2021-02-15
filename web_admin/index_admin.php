@@ -46,6 +46,8 @@
                                     <li><a href="view_appointment.php">Edit Appointments</a></li>
 									<li><a href="view_session.php">Session Logs</a></li>  
 									<li><a href="register_doctor.php">Add Doctor</a></li>  
+                                    <li><a href="view_doctor.php">View Doctors List</a></li> 
+                                    <li><a href="view_patient.php">View Patients List</a></li> 
 								</ul>
                             </li> 
                             <li><a href="../logout.php">Logout</a></li>   
