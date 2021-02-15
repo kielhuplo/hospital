@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="../css/owl-carousel.css">
     <link rel="stylesheet" href="../css/lightbox.css">
     <link rel="shortcut icon" type="image/png" href="../images/transparenticon.png">
+    <link rel="stylesheet" href="../css/tempcss.css">
     </head>
     <body>
     <!-- Header -->
@@ -110,7 +111,6 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="left-text-content">
-					<img src="../images/top.png"><br><br>
                         <div class="section-heading">
                             <h6>My Account</h6>
                             <h2>
@@ -120,8 +120,19 @@
 							</h2>
                         </div>
                         <img src="../images/bot.png" alt="">
-                        <br><br><br><br>
+                        <div class="section-heading">
+						<h2>Manage List</h2>
+						</div>
+						<div class="row">
+                            <div class="col-6">
+                                <a href="view_patient.php"><div class="acctbutton"> View Doctor List </div></a>
+                            </div>
+                            <div class="col-6">
+                                <a href="view_doctor.php"><div class="acctbutton"> View Patient List </div></a>
+                                </div>
+                        </div>
                     </div>
+                    <br>
                     <a href="register_doctor.php">
 							<img src="../images/cdoc.png" alt="">
                     </a>
@@ -138,6 +149,9 @@
 						</div>
                     </div>
                 </div>
+        </div>
+        </div>
+        </div>
             </div>
         </div>
     </section>
