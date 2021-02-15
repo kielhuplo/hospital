@@ -42,10 +42,10 @@
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="index_patient.php">Home</a></li>
 							<li class="submenu">
-                                <a href="javascript:;">My Account</a>
+                                <a href="javascript:;" class="active">My Account</a>
                                 <ul>
 									<li class="scroll-to-section"><a href="index_patient.php #about">Account</a></li>
-                                    <li class="scroll-to-section"><a href="#menu" class="active">View Profile</a></li>
+                                    <li class="scroll-to-section"><a href="#menu">View Profile</a></li>
 									<li class="scroll-to-section"><a href="#">Edit Profile</a></li>
                                 </ul>
                             </li>

@@ -50,7 +50,7 @@
                                 </ul>
                             </li>
                             <li class="submenu">
-                                <a href="javascript:;">Appointment</a>
+                                <a href="javascript:;" class="active">Appointment</a>
                                 <ul>
                                     <li><a href="book_appointment.php">Book Appointment</a></li>
                                     <li><a href="#menu.php">View Appointment</a></li>

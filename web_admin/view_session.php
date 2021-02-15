@@ -43,10 +43,10 @@
                             <li class="scroll-to-section"><a href="index_admin.php">Home</a></li>
 							<li class="scroll-to-section"><a href="index_admin.php #ourteam">Our Team</a></li> 
                             <li class="submenu">
-                                <a href="javascript:;">Functions</a>
+                                <a href="javascript:;" class="active">Functions</a>
                                 <ul>
                                     <li><a href="view_appointment.php">Edit Appointments</a></li>
-									<li><a href="view_session.php" class="active">Session Logs</a></li>
+									<li><a href="view_session.php">Session Logs</a></li>
 									<li><a href="register_doctor.php">Add Doctor</a></li>
                                 </ul>
                             </li> 

@@ -69,7 +69,7 @@
                         </a>
                         <!--  Menu  -->
            				<ul class="nav">
-                            <li class="scroll-to-section"><a href="index.html #top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="index.html #top">Home</a></li>
                             <li class="scroll-to-section"><a href="index.html #about">About Us</a></li>
 							<li class="scroll-to-section"><a href="index.html #ourteam">Our Team</a></li> 
                             <li class="scroll-to-section"><a href="index.html #contactus">Contact Us</a></li>
