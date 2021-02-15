@@ -84,17 +84,16 @@
                             <div class="col-lg-6">
                               <fieldset>
 									<br/>Doctor:
-									<select name="doctor_id">
-                                        <?php
-                                            $doctor_query = mysqli_query($con, "SELECT doctor_id, CONCAT(fname, \" \", lname) AS doctor_assigned FROM doctor ORDER BY doctor_id ASC"); // SQL Query
-                                            while($doctor_row = mysqli_fetch_array($doctor_query)){
-                                                Print "<option value=\"" . $doctor_row['doctor_id'] . "\">" . $doctor_row['doctor_assigned'] . "</option>";  // output doctors on dropdown
-                                            }
-                                        ?>
-									</select>
+                                    <?php
+                                        $user_id = $_SESSION['user_id'];
+                                        $doctor_query = mysqli_query($con, "SELECT doctor_id, CONCAT(fname, \" \", lname) AS doctor_assigned FROM doctor WHERE doctor_id = '".$user_id."'");
+                                        while($doctor_row = mysqli_fetch_array($doctor_query)){
+                                            echo $doctor_row['doctor_assigned'];
+                                        }
+                                    ?>
                               </fieldset>
 							  <fieldset>
-                                    Day:
+                                    <br/>Day:
                                         <select name="day">
                                             <?php
                                                 Print "<option value=\"\" selected disabled hidden>Select Day</option>";
@@ -118,7 +117,7 @@
 						<?php
 						if($_SERVER["REQUEST_METHOD"] == "POST")
 						{
-							$doctor_id = ($_POST['doctor_id']);
+							$doctor_id = $_SESSION['user_id'];
 							$day = ($_POST['day']);
 							$time_from = ($_POST['time_from']);
 							$time_to = ($_POST['time_to']);                    						
