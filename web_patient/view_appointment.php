@@ -50,13 +50,14 @@
                                 </ul>
                             </li>
                             <li class="submenu">
-                                <a href="javascript:;">Appointment</a>
+                                <a href="javascript:;" class="active">Appointment</a>
                                 <ul>
                                     <li><a href="book_appointment.php">Book Appointment</a></li>
                                     <li><a href="#menu.php">View Appointment</a></li>
 									<li><a href="#ourteam">Our Doctors</a></li>
                                 </ul>
                             </li>
+							<li class="scroll-to-section"><a href="index_patient.php #contactus">Contact Us</a></li>
 							<li><a href="../logout.php">Logout</a></li> 
                         </ul>       
                         <a class='menu-trigger'>

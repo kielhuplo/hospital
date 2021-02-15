@@ -55,13 +55,14 @@
                                 </ul>
                             </li>
                             <li class="submenu">
-                                <a href="javascript:;">Appointment</a>
+                                <a href="javascript:;" class="active">Appointment</a>
                                 <ul>
                                     <li><a href="#about">Book Appointment</a></li>
                                     <li><a href="view_appointment.php #menu.php">View Appointment</a></li>
 									<li><a href="#ourteam">Our Doctors</a></li>
                                 </ul>
                             </li>
+							<li class="scroll-to-section"><a href="index_patient.php #contactus">Contact Us</a></li>
 							<li><a href="../logout.php">Logout</a></li> 
                         </ul>       
                         <a class='menu-trigger'>
@@ -141,7 +142,7 @@
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="right-content">
                         <div class="thumb">
-							<img src="https://i.redd.it/2at5kzjpmlz51.jpg">
+							<img src="../images/bsidepic.png">
 						</div>
                     </div>
                 </div>
