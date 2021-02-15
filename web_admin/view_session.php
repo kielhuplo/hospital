@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (isset($_SESSION['username'])) {
-        $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error());
+        $con = mysqli_connect("sql107.epizy.com", "epiz_27937498", "IA8QyYIzOeKC", "epiz_27937498_patient_care") or die(mysqli_error());
     }
     else {
         header("location: ../index.html");
@@ -103,7 +103,7 @@
 
     <?php
 
-        $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error());
+        $con = mysqli_connect("sql107.epizy.com", "epiz_27937498", "IA8QyYIzOeKC", "epiz_27937498_patient_care") or die(mysqli_error());
         $user_id = $_SESSION['user_id'];
         $query = mysqli_query($con, "SELECT login_date_time, logout_date_time, CONCAT(fname, \" \", lname) AS patient_name FROM `patient_log` INNER JOIN patient WHERE patient.patient_id = patient_log.patient_id ORDER BY login_date_time asc");
         

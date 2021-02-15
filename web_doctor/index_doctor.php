@@ -1,11 +1,11 @@
 <?php
     session_start();
     if (isset($_SESSION['username'])) {
-        $db_name = "patient_care";
-        $db_username = "root";
-        $db_pass = "";
-        $db_host = "localhost";
-        $con = mysqli_connect("$db_host","$db_username","$db_pass", "$db_name") or
+        $db_server ="sql107.epizy.com";
+	    $db_username ="epiz_27937498";
+	    $db_password ="IA8QyYIzOeKC";
+	    $db_name ="epiz_27937498_patient_care";
+        $con = mysqli_connect("$db_server","$db_username","$db_password", "$db_name") or
         die(mysqli_error()); //Connect to server
 		$username=($_SESSION['username']);
     }
@@ -40,7 +40,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!--  Logo  -->
-                        <a href="index_doctor.php" class="logo">
+                        <a href="index_admin.html" class="logo">
                             <img src="../images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
                         <!--  Menu  -->
@@ -161,7 +161,7 @@
 							</div>
 								<?php
 									
-									$con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error());
+									$con = mysqli_connect("sql107.epizy.com", "epiz_27937498", "IA8QyYIzOeKC", "epiz_27937498_patient_care") or die(mysqli_error());
 									$user_id = $_SESSION['user_id'];
 									$query = mysqli_query($con, "SELECT appointment_date, appointment_time, CONCAT(fname, \" \", lname) AS patient_assigned, approval as status FROM `appointment` INNER JOIN patient on patient.patient_id = appointment.patient_id WHERE doctor_id = '".$user_id."' ORDER BY appointment_date asc");
 									

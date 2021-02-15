@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (isset($_SESSION['username'])) {
-        $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error());
+        $con = mysqli_connect("sql107.epizy.com", "epiz_27937498", "IA8QyYIzOeKC", "epiz_27937498_patient_care") or die(mysqli_error());
     }
     else {
         header("location: ../index.html");
