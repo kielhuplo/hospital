@@ -2,7 +2,12 @@
 
     session_start();
     if (isset($_SESSION['username'])) {
-        $con = mysqli_connect("localhost", "root", "", "patient_care") or die(mysqli_error());
+        $db_server ="sql107.epizy.com";
+		$db_username ="epiz_27937498";
+		$db_password ="IA8QyYIzOeKC";
+		$db_name ="epiz_27937498_patient_care";
+		
+		$con = mysqli_connect($db_server, $db_username, $db_password, $db_name) or die(mysqli_error());
     }
     else {
         header("location: ../index.html");
