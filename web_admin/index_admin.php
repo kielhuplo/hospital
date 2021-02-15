@@ -26,43 +26,40 @@
     <link rel="shortcut icon" type="image/png" href="../images/transparenticon.png">
     </head>
     <body>
-    <!-- ***** Header Area Start ***** -->
+    <!-- Header -->
     <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
+                        <!--  Logo  -->
                         <a href="index_admin.html" class="logo">
                             <img src="../images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
+                        <!--  Menu  -->
                         <ul class="nav">
 							<li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
 							<li class="scroll-to-section"><a href="#ourteam">Our Team</a></li> 
                             <li class="submenu">
-                                <a href="javascript:;">Appointment</a>
+                                <a href="javascript:;">Functions</a>
                                 <ul>
-                                    <li><a href="view_appointment.php">View Appointment</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="view_session.php">Session Logs</a></li>   
-                            <li><a href="register_doctor.php">CREATE DOCTOR</a></li>   
+                                    <li><a href="view_appointment.php">Edit Appointments</a></li>
+									<li><a href="view_session.php">Session Logs</a></li>  
+									<li><a href="register_doctor.php">Add Doctor</a></li>  
+								</ul>
+                            </li> 
                             <li><a href="../logout.php">Logout</a></li>   
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
-                        <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
             </div>
         </div>
     </header>
-    <!-- ***** Header Area End ***** -->
 
-    <!-- ***** Main Banner Area Start ***** -->
+    <!-- Main -->
     <div id="top">
         <div class="container-fluid">
             <div class="row">
@@ -86,30 +83,26 @@
                                 <img src="../images/doc1.jpg" alt="">
                             </div>
                           </div>
-                          <!-- // Item -->
                           <!-- Item -->
                           <div class="item">
                             <div class="img-fill">
                                 <img src="https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2015/01/12/102329974-doctor-patient.1910x1000.jpg" alt="">
                             </div>
                           </div>
-                          <!-- // Item -->
                           <!-- Item -->
                           <div class="item">
                             <div class="img-fill">
                                 <img src="https://th.bing.com/th/id/Re4ab6654af6cf92e450cf586451ed78c?rik=2%2f3YgvjYrXVQ0w&riu=http%3a%2f%2fwww.lumahealth.io%2fwp-content%2fuploads%2f2018%2f05%2fTransparency-in-the-Doctor-Patient-Relationship-1.jpg&ehk=gu%2bLtp6gz5Rqts9XNrRoaYlJZgcFGDhE5YHDdalycqg%3d&risl=&pid=ImgRaw" alt="">
                             </div>
                           </div>
-                          <!-- // Item -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ***** Main Banner Area End ***** -->
 
-    <!-- ***** About Area Starts ***** -->
+    <!-- About -->
     <section class="section" id="about">
         <div class="container">
             <div class="row">
@@ -155,10 +148,8 @@
             </div>
         </div>
     </section>
-    <!-- ***** About Area Ends ***** -->
 
-
-    <!-- ***** Our Team Area Starts ***** -->
+    <!-- Our Team -->
     <section class="section" id="ourteam">
         <div class="container">
             <div class="row">
@@ -204,8 +195,7 @@
                         </div>
                     </div>
                 </div>
-			</div>
-			
+			</div>	
 			<div class="row">
                 <div class="col-lg-4 offset-lg-2">
                     <div class="team-item">
@@ -244,20 +234,13 @@
             </div>
         </div>
     </section>
-    <!-- ***** Our Team Area Ends ***** -->
     
-    <!-- ***** Footer Start ***** -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-xs-12">
                     <div class="right-text-content">
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -267,22 +250,18 @@
                 </div>
                 <div class="col-lg-4 col-xs-12">
                     <div class="left-text-content">
-                        <p>© Copyright Klassy Cafe Co.
-                        
+                        <p>© Copyright Klassy Cafe Co. 
                         <br>Design: TemplateMo</p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
     <!-- jQuery -->
     <script src="../js/jquery-2.1.0.min.js"></script>
-
     <!-- Bootstrap -->
     <script src="../js/popper.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-
     <!-- Plugins -->
     <script src="../js/owl-carousel.js"></script>
     <script src="../js/accordions.js"></script>
@@ -294,11 +273,9 @@
     <script src="../js/slick.js"></script> 
     <script src="../js/lightbox.js"></script> 
     <script src="../js/isotope.js"></script> 
-    
     <!-- Global Init -->
     <script src="../js/custom.js"></script>
     <script>
-
         $(function() {
             var selectedClass = "";
             $("p").click(function(){
@@ -312,7 +289,6 @@
                 
             });
         });
-
     </script>
   </body>
 </html>

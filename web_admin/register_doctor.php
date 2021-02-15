@@ -18,12 +18,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Patient Help: Registration Page</title>
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/templatemo-klassy-cafe.css">
-    <link rel="stylesheet" href="css/owl-carousel.css">
-    <link rel="stylesheet" href="css/lightbox.css">
-    <link rel="shortcut icon" type="image/png" href="images/transparenticon.png">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.css">
+    <link rel="stylesheet" href="../css/templatemo-klassy-cafe.css">
+    <link rel="stylesheet" href="../css/owl-carousel.css">
+    <link rel="stylesheet" href="../css/lightbox.css">
+    <link rel="shortcut icon" type="image/png" href="../images/transparenticon.png">
     </head>
 	<style>
 	/* Mark input boxes that gets an error on validation: */
@@ -74,13 +74,21 @@
                     <nav class="main-nav">
                         <!--  Logo  -->
                         <a href="index.html" class="logo">
-                            <img src="images/patienthelplogo.png" align="klassy cafe html template">
+                            <img src="../images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
                         <!--  Menu  -->
-                        <ul class="nav">
-							<li class="scroll-to-section"><a href="index.html">Home</a></li> 
-                            <li class="scroll-to-section"><a href="#top" class="active">Register</a></li>
-                            <li class="scroll-to-section"><a href="login.php">Login</a></li>
+						<ul class="nav">
+							<li class="scroll-to-section"><a href="index_admin.php #top" class="active">Home</a></li>
+							<li class="scroll-to-section"><a href="index_admin.php #ourteam">Our Team</a></li> 
+                            <li class="submenu">
+                                <a href="javascript:;">Functions</a>
+                                <ul>
+                                    <li><a href="view_appointment.php">Edit Appointments</a></li>
+									<li><a href="view_session.php">Session Logs</a></li>   
+									<li><a href="register_doctor.php" class="active">Add Doctor</a></li>  
+                                </ul>
+                            </li> 
+                            <li><a href="../logout.php">Logout</a></li>   
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -90,7 +98,7 @@
             </div>
         </div>
     </header>
-    <!--  Main -->
+    <!-- Main -->
     <div id="top">
     <section class="section" id="contactus">
         <div class="container">
@@ -98,10 +106,10 @@
                 <div class="col-lg-6 align-self-center">
                     <div class="left-text-content">
                         <div class="section-heading">
-                            <h6>Registration</h6>
-                            <h2>Welcome to PatientHelp.</h2>
+                            <h6>Add Doctor</h6>
+                            <h2>Create New Account</h2>
                         </div>
-                        <p>Kindly fill out the form to create doctor.</p>
+                        <p>Kindly fill out the form to create an account for a doctor.</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -109,7 +117,7 @@
                         <form id="contact" action="register_doctor.php" method="POST">
                           <div class="row">
                             <div class="col-lg-12">
-                                <h4>Registration Form</h4>
+                                <h4>New Doctor</h4>
                             </div>
                             <div class="col-lg-12">
 							  <!-- Steps -->
@@ -128,22 +136,18 @@
 									<input type="text" name="contact_num" required="required">
 								Email:
 									<input type="text" name="email" required="required">
-							  </div>
-							  <div class="tab">
 								Street:
 									<input type="text" name="address_line1" required="required">
 								Barangay:
 									<input type="text" name="address_line2" required="required">
+							  </div>
+							  <div class="tab">
 								City:
 								    <input type="text" name="address_city" required="required">
 								State:
 									<input type="text" name="address_state" required="required">
-							  </div>
-							  <div class="tab">
 								Enter Zip Code:
-									<input type="text" name="zip_code" required="required">
-							  </div>
-                              <div class="tab">
+									<input type="text" name="zip_code" required="required">	
 								Specialization:
 									<input type="text" name="spec_detail" required="required">
 							  </div>
@@ -162,14 +166,8 @@
 								<span class="step"></span>
 								<span class="step"></span>
 								<span class="step"></span>
-								<span class="step"></span>
-								<span class="step"></span>
 							  </div>
 							  <div class="col-lg-12">
-                              <fieldset>
-								<br/>
-								<a href="login.php"  style="color:#4dc0d7">Already have an Account? Login Here!</a>
-                              </fieldset>
                             </div>
                             </div>
                           </div>
@@ -189,7 +187,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="logo">
-                        <a href="index.html"><img src="images/white-logo.png" alt=""></a>
+                        <a href="index.html"><img src="../images/white-logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xs-12">

@@ -42,51 +42,49 @@
 	</style>
 	</head>
     <body>
-    <!-- ***** Header Area Start ***** -->
+    <!-- Header -->
     <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
+                        <!--  Logo  -->
                         <a href="index_patient.php" class="logo">
                             <img src="../images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
+                        <!--  Menu  -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="index_admin.php">Home</a></li>
-							<li class="scroll-to-section"><a href="index_admin.php #ourteam">Our Doctors</a></li> 
+							<li class="scroll-to-section"><a href="index_admin.php #ourteam">Our Team</a></li> 
                             <li class="submenu">
-                                <a href="javascript:;">Appointment</a>
+                                <a href="javascript:;">Functions</a>
                                 <ul>
-                                    <li><a href="view_appointment.php">View Appointment</a></li>
+                                    <li><a href="view_appointment.php">Edit Appointments</a></li>
+									<li><a href="view_session.php" class="active">Session Logs</a></li>
+									<li><a href="register_doctor.php">Add Doctor</a></li>
                                 </ul>
-                            </li>
-                            <li class="scroll-to-section"><a href="view_session.php" class="active">Session Logs</a></li>
+                            </li> 
 							<li><a href="../logout.php">Logout</a></li> 
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
-                        <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
             </div>
         </div>
     </header>
-    <!-- ***** Header Area End ***** -->
 
-    <!-- ***** View Session Starts ***** -->
+    <!-- View Session -->
     <section class="section" id="menu">
         <div class="container">
             <div class="row">
-			<div class="col-lg-4 offset-lg-4 text-center">
+				<div class="col-lg-4 offset-lg-4 text-center">
                     <div class="section-heading">
                         <h6>VIEW SESSION LOGS</h6>
 						<h2>Monitor List</h2>
                     </div>
-            </div>
+				</div>
 			</div>
   
     <table align="center" border="1px">
@@ -141,20 +139,13 @@
     </div>
     </section>
     <br></br>
- <!-- ***** View Session Ends ***** -->
     
-<!-- ***** Footer Start ***** -->
+<!-- Footer -->
 <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-xs-12">
                     <div class="right-text-content">
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -172,14 +163,11 @@
             </div>
         </div>
     </footer>
-
     <!-- jQuery -->
     <script src="../js/jquery-2.1.0.min.js"></script>
-
     <!-- Bootstrap -->
     <script src="../js/popper.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-
     <!-- Plugins -->
     <script src="../js/owl-carousel.js"></script>
     <script src="../js/accordions.js"></script>
@@ -218,12 +206,7 @@
 			}
 		})
 	}
-    
-
-
-	
-	
-    
+	</script>
 	<!-- Global Init -->
     <script src="../js/custom.js"></script>
   </body>

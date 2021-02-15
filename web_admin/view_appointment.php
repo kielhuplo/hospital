@@ -42,42 +42,40 @@
 	</style>
 	</head>
     <body>
-    <!-- ***** Header Area Start ***** -->
+    <!-- Header -->
     <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
+                        <!--  Logo  -->
                         <a href="index_patient.php" class="logo">
                             <img src="../images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
+                        <!--  Menu  -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="index_admin.php">Home</a></li>
-							<li class="scroll-to-section"><a href="index_admin.php #ourteam">Our Doctors</a></li> 
+                            <li class="scroll-to-section"><a href="index_admin.php #top">Home</a></li>
+							<li class="scroll-to-section"><a href="index_admin.php #ourteam">Our Team</a></li> 
                             <li class="submenu">
-                                <a href="javascript:;" class="active">Appointment</a>
+                                <a href="javascript:;" class="active">Functions</a>
                                 <ul>
-                                    <li><a href="view_appointment.php">View Appointment</a></li>
+                                    <li><a href="view_appointment.php">Edit Appointments</a></li>
+									<li><a href="view_session.php" class="active">Session Logs</a></li>
+									<li><a href="register_doctor.php">Add Doctor</a></li>  
                                 </ul>
                             </li>
-                            <li class="scroll-to-section"><a href="view_session.php">Session Logs</a></li>
 							<li><a href="../logout.php">Logout</a></li> 
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
-                        <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
             </div>
         </div>
     </header>
-    <!-- ***** Header Area End ***** -->
 
-    <!-- ***** Manage Appointment Starts ***** -->
+    <!-- Manage Appointment -->
     <section class="section" id="menu">
         <div class="container">
             <div class="row">
@@ -121,22 +119,13 @@
     </table>
         </div>
     </section>
-    <!-- ***** My Schedule Ends ***** -->
 
-    
-	
-	<!-- ***** Footer Start ***** -->
+	<!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-xs-12">
                     <div class="right-text-content">
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -147,21 +136,17 @@
                 <div class="col-lg-4 col-xs-12">
                     <div class="left-text-content">
                         <p>© Copyright Klassy Cafe Co.
-                        
                         <br>Design: TemplateMo</p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
     <!-- jQuery -->
     <script src="../js/jquery-2.1.0.min.js"></script>
-
     <!-- Bootstrap -->
     <script src="../js/popper.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-
     <!-- Plugins -->
     <script src="../js/owl-carousel.js"></script>
     <script src="../js/accordions.js"></script>
@@ -200,12 +185,7 @@
 			}
 		})
 	}
-    
-
-
-	
-	
-    
+	</script>
 	<!-- Global Init -->
     <script src="../js/custom.js"></script>
   </body>
