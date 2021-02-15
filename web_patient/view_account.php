@@ -34,19 +34,27 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <!--  Logo Start  -->
+                        <!--  Logo  -->
                         <a href="index_patient.php" class="logo">
                             <img src="../images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
-                        <!--  Menu Start  -->
+                        <!--  Menu  -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="index_patient.php">Home</a></li>
-							<li class="scroll-to-section"><a href="#menu" class="active">My Profile</a></li> 
+							<li class="submenu">
+                                <a href="javascript:;">My Account</a>
+                                <ul>
+									<li class="scroll-to-section"><a href="index_patient.php #about">Account</a></li>
+                                    <li class="scroll-to-section"><a href="#menu" class="active">View Profile</a></li>
+									<li class="scroll-to-section"><a href="#">Edit Profile</a></li>
+                                </ul>
+                            </li>
                             <li class="submenu">
                                 <a href="javascript:;">Appointment</a>
                                 <ul>
                                     <li><a href="book_appointment.php">Book Appointment</a></li>
                                     <li><a href="view_appointment.php">View Appointment</a></li>
+									<li><a href="view_appointment.php">Our Doctors</a></li>
                                 </ul>
                             </li>
 							<li><a href="../logout.php">Logout</a></li> 

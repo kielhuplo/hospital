@@ -40,11 +40,13 @@
                         </a>
                         <!--  Menu  -->
                         <ul class="nav">
-                            <li><a href="index_doctor.php">Home</a></li>
+                            <li class="scroll-to-section"><a href="index_doctor.php #top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="index_doctor.php #about">Account</a></li>
+                            <li class="scroll-to-section"><a href="index_doctor.php #contactus">Contact Us</a></li> 
                             <li class="submenu">
                                 <a href="javascript:;">Appointment</a>
                                 <ul>
-                                    <li><a href="view_appointment.php">Manage Appointments</a></li>
+                                    <li><a href="view_appointment.php" class="active">Manage Appointments</a></li>
                                 </ul>
                             </li> 
                             <li><a href="../logout.php">Logout</a></li>

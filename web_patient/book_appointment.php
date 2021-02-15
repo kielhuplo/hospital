@@ -44,18 +44,26 @@
                             <img src="../images/patienthelplogo.png" align="klassy cafe html template">
                         </a>
                         <!--  Menu  -->
-                        <ul class="nav">
-                            <li class="scroll-to-section"><a href="index_patient.php">Home</a></li>
-							<li class="scroll-to-section"><a href="#ourteam">Our Doctors</a></li> 
+						<ul class="nav">
+                            <li class="scroll-to-section"><a href="index_patient.php #top">Home</a></li>
+							<li class="submenu">
+                                <a href="javascript:;">My Account</a>
+                                <ul>
+									<li class="scroll-to-section"><a href="index_patient.php #about">Account</a></li>
+                                    <li class="scroll-to-section"><a href="view_account.php #menu">View Profile</a></li>
+									<li class="scroll-to-section"><a href="#">Edit Profile</a></li>
+                                </ul>
+                            </li>
                             <li class="submenu">
                                 <a href="javascript:;">Appointment</a>
                                 <ul>
-                                    <li><a href="book_appointment.php">Book Appointment</a></li>
-                                    <li><a href="view_appointment.php">View Appointment</a></li>
+                                    <li><a href="#about">Book Appointment</a></li>
+                                    <li><a href="view_appointment.php #menu.php">View Appointment</a></li>
+									<li><a href="#ourteam">Our Doctors</a></li>
                                 </ul>
                             </li>
 							<li><a href="../logout.php">Logout</a></li> 
-                        </ul>        
+                        </ul>       
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
