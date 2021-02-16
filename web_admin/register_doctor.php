@@ -1,7 +1,13 @@
 <?php
     session_start();
     if (isset($_SESSION['username'])) {
-        $con = mysqli_connect("sql107.epizy.com", "epiz_27937498", "IA8QyYIzOeKC", "epiz_27937498_patient_care") or die(mysqli_error());
+      $db_server ="localhost";
+      $db_username ="root";
+      $db_password ="";
+      $db_name ="patient_care";
+        
+      $con = mysqli_connect($db_server, $db_username, $db_password, $db_name) or
+      die(mysqli_error()); //Connect to server
     }
     else {
         header("location: ../index.html");
@@ -152,7 +158,15 @@
 								Enter Zip Code:
 									<input type="text" name="zip_code" required="required">	
 								Specialization:
-									<input type="text" name="spec_detail" required="required">
+                  <select name="spec_detail">
+                    <option value="" selected disabled hidden>Choose Specialization</option>
+                    <?php
+                        $spec_query = mysqli_query($con, "SELECT * FROM specialization"); // SQL Query
+                        while($spec_row = mysqli_fetch_array($spec_query)){
+                            Print "<option value=\"" . $spec_row['spec_detail'] . "\">" . $spec_row['spec_detail'] . "</option>";  // output doctors on dropdown
+                        }
+                    ?>
+									</select>
 							  </div>
 							  <div style="overflow:auto;">
 								<fieldset>
@@ -315,12 +329,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $spec_detail = ($_POST['spec_detail']);
     $date = strftime("%Y-%m-%d");
     $bool = true;
-    $db_server ="sql107.epizy.com";
-	$db_username ="epiz_27937498";
-	$db_password ="IA8QyYIzOeKC";
-	$db_name ="epiz_27937498_patient_care";
-	
-	$con = mysqli_connect($db_server, $db_username, $db_password, $db_name);
 	
 	if(!$con){
 		die("Connection failed:".mysqli_connect_error());

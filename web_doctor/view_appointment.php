@@ -1,7 +1,13 @@
 <?php
     session_start();
     if (isset($_SESSION['username'])) {
-        $con = mysqli_connect("sql107.epizy.com", "epiz_27937498", "IA8QyYIzOeKC", "epiz_27937498_patient_care") or die(mysqli_error());
+        $db_server ="localhost";
+        $db_username ="root";
+        $db_password ="";
+        $db_name ="patient_care";
+            
+        $con = mysqli_connect($db_server, $db_username, $db_password, $db_name) or
+        die(mysqli_error()); //Connect to server
     }
     else {
         header("location: ../index.html");

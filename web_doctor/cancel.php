@@ -6,7 +6,13 @@ else{
 header("location:index.html"); // redirects if user is not logged in
 }
 
-    $con = mysqli_connect("sql107.epizy.com", "epiz_27937498", "IA8QyYIzOeKC", "epiz_27937498_patient_care") or die(mysqli_error()); //Connect to server
+		$db_server ="localhost";
+		$db_username ="root";
+		$db_password ="";
+		$db_name ="patient_care";
+			
+		$con = mysqli_connect($db_server, $db_username, $db_password, $db_name) or
+		die(mysqli_error()); //Connect to server
         mysqli_query($con, "SELECT * FROM appointment");
         $approval = "CANCELLED";
         $id = $_GET['id'];

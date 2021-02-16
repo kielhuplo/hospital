@@ -1,11 +1,12 @@
 <?php
     session_start();
-    $db_server ="sql107.epizy.com";
-	$db_username ="epiz_27937498";
-	$db_password ="IA8QyYIzOeKC";
-	$db_name ="epiz_27937498_patient_care";
-	
-	$con = mysqli_connect($db_server, $db_username, $db_password, $db_name);
+    $db_server ="localhost";
+    $db_username ="root";
+    $db_password ="";
+    $db_name ="patient_care";
+        
+    $con = mysqli_connect($db_server, $db_username, $db_password, $db_name) or
+    die(mysqli_error()); //Connect to server
 	
 	if(!$con){
 		die("Connection failed:".mysqli_connect_error());
@@ -104,7 +105,7 @@
 						  
                             mysqli_query($con, "INSERT INTO specialization (spec_detail,creation_date) VALUES
                             ('$spec_detail','$date')"); //Inserts the value to table specialization
-                            Print '<script>alert("Appointment Sent to Doctor!");</script>'; // Prompts the user
+                            Print '<script>alert("Added New Specialization!");</script>'; // Prompts the user
                             Print '<script>window.location.assign("add_specialization.php");</script>'; // redirects to register.php
 						}
 						?>

@@ -126,10 +126,10 @@
 						</div>
 						<div class="row">
                             <div class="col-6">
-                                <a href="view_patient.php"><div class="acctbutton"> View Doctor List </div></a>
+                                <a href="view_doctor.php"><div class="acctbutton"> View Doctor List </div></a>
                             </div>
                             <div class="col-6">
-                                <a href="view_doctor.php"><div class="acctbutton"> View Patient List </div></a>
+                                <a href="view_patient.php"><div class="acctbutton"> View Patient List </div></a>
                                 </div>
                         </div>
                     </div>
